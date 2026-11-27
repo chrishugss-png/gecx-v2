@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sierra AI - Programme Summary</title>
+<title>VMO2 Digital Agentic Strategy</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
@@ -11,7 +11,6 @@
   :root {
     --vm-red: #E10A0A;
     --vm-red-deep: #B30000;
-    --vm-red-light: #FF4D4D;
     --o2-blue: #0019A5;
     --o2-cyan: #00A8E1;
     --volt-magenta: #FF1493;
@@ -24,11 +23,13 @@
     --bg-soft: #FAFAFA;
     --shadow-soft: 0 4px 20px rgba(0,0,0,0.06);
     --shadow-pop: 0 10px 40px rgba(225,10,10,0.15);
-    --gradient-vm: linear-gradient(135deg, #FF4D4D 0%, #E10A0A 50%, #B30000 100%);
-    --gradient-vm-soft: linear-gradient(135deg, #FFE5EA 0%, #FFEEF2 100%);
+    --shadow-blue: 0 10px 40px rgba(0,25,165,0.18);
+    --gradient-volt: linear-gradient(135deg, #E10A0A 0%, #FF1493 45%, #0019A5 100%);
+    --gradient-volt-soft: linear-gradient(135deg, #FFE5E5 0%, #FFE5F5 50%, #E5EAFF 100%);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
+
   html { scroll-behavior: smooth; }
 
   body {
@@ -53,7 +54,7 @@
     padding: 0 32px;
   }
 
-  /* ===== NAV ===== */
+  /* ====== NAV ====== */
   nav {
     position: sticky;
     top: 0;
@@ -63,7 +64,11 @@
     z-index: 100;
     padding: 18px 0;
   }
-  .nav-inner { display: flex; align-items: center; justify-content: space-between; }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
   .logo {
     display: flex;
     align-items: center;
@@ -78,14 +83,18 @@
     width: 38px;
     height: 38px;
     border-radius: 10px;
+    display: grid;
+    place-items: center;
     overflow: hidden;
     box-shadow: var(--shadow-pop);
     flex-shrink: 0;
-    display: grid;
-    place-items: center;
   }
   .logo-mark svg { width: 100%; height: 100%; display: block; }
-  .nav-links { display: flex; gap: 26px; list-style: none; }
+  .nav-links {
+    display: flex;
+    gap: 26px;
+    list-style: none;
+  }
   .nav-links a {
     color: var(--ink-soft);
     text-decoration: none;
@@ -95,33 +104,22 @@
     white-space: nowrap;
   }
   .nav-links a:hover { color: var(--vm-red); }
-  @media (max-width: 900px) { .nav-links { display: none; } }
-  .nav-audience {
-    font-family: 'Sora', sans-serif;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--ink-mute);
-    padding: 6px 12px;
-    border: 1px solid var(--line);
-    border-radius: 100px;
-  }
+  @media (max-width: 1100px) { .nav-links { display: none; } }
 
-  /* ===== HERO ===== */
+  /* ====== HERO ====== */
   .hero {
     position: relative;
     padding: 100px 0 120px;
     overflow: hidden;
-    background: linear-gradient(135deg, #FFFFFF 0%, #FAFAFA 40%, #FFE5EA 75%, #FFEEF2 100%);
+    background: linear-gradient(135deg, #FFFFFF 0%, #FAFAFA 40%, #FFE5EA 75%, #E5EAFF 100%);
     color: var(--ink);
   }
   .hero::before {
     content: '';
     position: absolute;
     inset: 0;
-    background-image: radial-gradient(circle at 85% 25%, rgba(225,10,10,0.10) 0%, transparent 55%),
-                      radial-gradient(circle at 15% 80%, rgba(179,0,0,0.08) 0%, transparent 55%);
+    background-image: radial-gradient(circle at 85% 25%, rgba(225,10,10,0.08) 0%, transparent 55%),
+                      radial-gradient(circle at 15% 80%, rgba(0,25,165,0.08) 0%, transparent 55%);
     pointer-events: none;
   }
   .hero-grid {
@@ -139,7 +137,7 @@
     padding: 8px 18px;
     background: white;
     border: 1px solid var(--line);
-    color: var(--vm-red-deep);
+    color: var(--vm-red);
     border-radius: 100px;
     font-size: 13px;
     font-weight: 700;
@@ -155,7 +153,7 @@
   }
   .hero h1 em {
     font-style: normal;
-    background: var(--gradient-vm);
+    background: var(--gradient-volt);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -179,9 +177,9 @@
     font-size: 16px;
     text-decoration: none;
     transition: transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 8px 24px rgba(225,10,10,0.25);
+    box-shadow: var(--shadow-pop);
   }
-  .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(225,10,10,0.35); }
+  .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(225,10,10,0.25); }
   .hero-cta-ghost {
     display: inline-flex;
     align-items: center;
@@ -199,22 +197,31 @@
   }
   .hero-cta-ghost:hover { background: var(--ink); color: white; }
 
-  /* Hero illustration - three concentric arcs */
+  /* Hero illustration - animated abstract spark */
   .hero-illo {
     position: relative;
     aspect-ratio: 1;
-    max-width: 460px;
+    max-width: 480px;
     margin-left: auto;
   }
   .hero-illo svg { width: 100%; height: 100%; }
-  @keyframes pulse-slow { 0%, 100% { opacity: 0.85; } 50% { opacity: 1; } }
-  @keyframes spin-slow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-  @keyframes float-soft { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-  .illo-ring-outer { animation: spin-slow 40s linear infinite; transform-origin: 50% 50%; }
-  .illo-ring-mid { animation: spin-slow 30s linear infinite reverse; transform-origin: 50% 50%; }
-  .illo-core { animation: pulse-slow 3s ease-in-out infinite; transform-origin: center; }
-  .illo-phase-marker { animation: float-soft 5s ease-in-out infinite; transform-origin: center; }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.9; }
+    50% { transform: scale(1.05); opacity: 1; }
+  }
+  @keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+  .illo-bolt { animation: pulse 3s ease-in-out infinite; transform-origin: center; }
+  .illo-ring { animation: spin-slow 25s linear infinite; transform-origin: 50% 50%; }
+  .illo-orb { animation: float 5s ease-in-out infinite; transform-origin: center; }
 
+  /* Hero stats strip */
   .hero-stats {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -230,20 +237,27 @@
     font-weight: 800;
     line-height: 1;
     margin-bottom: 8px;
-    background: var(--gradient-vm);
+    background: var(--gradient-volt);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
-  .stat-label { font-size: 14px; color: var(--ink-soft); font-weight: 500; }
+  .stat-label {
+    font-size: 14px;
+    color: var(--ink-soft);
+    font-weight: 500;
+  }
 
-  /* ===== SECTION GENERIC ===== */
-  section { padding: 100px 0; position: relative; }
+  /* ====== SECTION GENERIC ====== */
+  section {
+    padding: 100px 0;
+    position: relative;
+  }
   .section-eyebrow {
     display: inline-block;
     padding: 6px 16px;
-    background: var(--gradient-vm-soft);
-    color: var(--vm-red-deep);
+    background: var(--gradient-volt-soft);
+    color: var(--vm-red);
     border-radius: 100px;
     font-size: 12px;
     font-weight: 700;
@@ -254,729 +268,2339 @@
   .section-title {
     font-size: clamp(32px, 4.5vw, 52px);
     margin-bottom: 20px;
-    max-width: 900px;
+    max-width: 800px;
   }
   .section-lead {
     font-size: 19px;
     color: var(--ink-soft);
-    max-width: 720px;
+    max-width: 680px;
     margin-bottom: 56px;
   }
-  .divider { height: 1px; background: var(--line); border: none; }
+  .divider {
+    height: 1px;
+    background: var(--line);
+    border: none;
+  }
 
-  /* ===== THREE-STEP APPROACH ===== */
-  .approach-bg { background: var(--bg-soft); }
-  .steps {
+  /* ====== PRINCIPLES (4-col benefit grid à la VMO2) ====== */
+  .principles {
+    background: var(--bg-soft);
+  }
+  .principle-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+  }
+  @media (max-width: 1000px) { .principle-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 540px) { .principle-grid { grid-template-columns: 1fr; } }
+  .principle {
+    text-align: center;
+    padding: 12px;
+  }
+  .principle-icon {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 24px;
+    background: white;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.3s;
+  }
+  .principle:hover .principle-icon { transform: translateY(-6px) rotate(-3deg); }
+  .principle h3 {
+    font-size: 20px;
+    margin-bottom: 12px;
+  }
+  .principle p {
+    color: var(--ink-soft);
+    font-size: 15px;
+  }
+
+  /* ====== TIERS ====== */
+  .tiers .section-title em {
+    font-style: normal;
+    background: var(--gradient-volt);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .tier-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .tier {
+    display: grid;
+    grid-template-columns: 200px 1fr auto;
+    gap: 40px;
+    align-items: center;
+    padding: 36px 40px;
+    border-radius: 24px;
+    background: white;
+    border: 1px solid var(--line);
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .tier::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 6px;
+  }
+  .tier-1::before { background: var(--vm-red); }
+  .tier-2::before { background: var(--volt-magenta); }
+  .tier-3::before { background: var(--o2-blue); }
+  .tier:hover { transform: translateX(6px); box-shadow: var(--shadow-soft); }
+  @media (max-width: 900px) { .tier { grid-template-columns: 1fr; gap: 20px; padding: 28px; } }
+
+  .tier-badge {
+    font-family: 'Sora', sans-serif;
+    font-weight: 800;
+  }
+  .tier-badge .num {
+    font-size: 64px;
+    line-height: 1;
+    background: var(--gradient-volt);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .tier-badge .label {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-mute);
+    font-weight: 700;
+    display: block;
+    margin-top: 4px;
+  }
+  .tier-content h3 {
+    font-size: 26px;
+    margin-bottom: 10px;
+  }
+  .tier-content p {
+    color: var(--ink-soft);
+    margin-bottom: 16px;
+    font-size: 16px;
+  }
+  .tier-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .tier-tag {
+    padding: 6px 14px;
+    background: var(--bg-soft);
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink-soft);
+  }
+  .tier-1 .tier-tag { background: #FFE5E5; color: var(--vm-red-deep); }
+  .tier-2 .tier-tag { background: #FFE5F5; color: #C2185B; }
+  .tier-3 .tier-tag { background: #E5EAFF; color: var(--o2-blue); }
+
+  .tier-volume {
+    text-align: right;
+    min-width: 140px;
+  }
+  .tier-volume .big {
+    font-family: 'Sora', sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--ink);
+  }
+  .tier-volume .small {
+    font-size: 13px;
+    color: var(--ink-mute);
+    font-weight: 600;
+  }
+  @media (max-width: 900px) { .tier-volume { text-align: left; } }
+
+  /* ====== DELIVERY MODEL ====== */
+  .delivery {
+    background: var(--bg-soft);
+  }
+  .delivery-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
   }
-  @media (max-width: 900px) { .steps { grid-template-columns: 1fr; } }
-  .step {
+  @media (max-width: 900px) { .delivery-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { .delivery-grid { grid-template-columns: 1fr; } }
+  .delivery-card {
     background: white;
-    border: 1px solid var(--line);
     border-radius: 20px;
     padding: 32px;
+    border: 1px solid var(--line);
+    transition: transform 0.2s, border-color 0.2s;
     position: relative;
-    transition: transform 0.2s, box-shadow 0.2s;
-    display: flex;
-    flex-direction: column;
   }
-  .step:hover { transform: translateY(-4px); box-shadow: var(--shadow-soft); }
-  .step-num {
+  .delivery-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--vm-red);
+  }
+  .delivery-step {
+    font-family: 'Sora', sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--vm-red);
+    letter-spacing: 0.08em;
+    margin-bottom: 12px;
+  }
+  .delivery-card h3 {
+    font-size: 22px;
+    margin-bottom: 12px;
+  }
+  .delivery-card p {
+    color: var(--ink-soft);
+    font-size: 15px;
+    margin-bottom: 16px;
+  }
+  .delivery-owner {
+    display: inline-block;
+    padding: 6px 14px;
+    background: var(--gradient-volt);
+    color: white;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+
+  /* ====== ROADMAP ====== */
+  .roadmap-track {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 40px;
+  }
+  @media (max-width: 1100px) { .roadmap-track { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { .roadmap-track { grid-template-columns: 1fr; } }
+  .phase {
+    background: var(--bg-soft);
+    border-radius: 24px;
+    padding: 36px 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .phase-num {
+    position: absolute;
+    top: -10px;
+    right: 16px;
+    font-family: 'Sora', sans-serif;
+    font-size: 120px;
+    font-weight: 800;
+    line-height: 1;
+    color: white;
+    opacity: 0.6;
+    z-index: 0;
+  }
+  .phase-1 { background: linear-gradient(135deg, #FFE5E5 0%, #FFF0F5 100%); }
+  .phase-1 .phase-num { color: rgba(225,10,10,0.12); }
+  .phase-2 { background: linear-gradient(135deg, #FFF0F5 0%, #F5E5FF 100%); }
+  .phase-2 .phase-num { color: rgba(255,20,147,0.12); }
+  .phase-3 { background: linear-gradient(135deg, #E5EAFF 0%, #E5F4FF 100%); }
+  .phase-3 .phase-num { color: rgba(0,25,165,0.12); }
+  .phase-4 { background: linear-gradient(135deg, #1A1A1A 0%, #2D2D2D 100%); color: white; }
+  .phase-4 .phase-num { color: rgba(255,215,0,0.18); }
+  .phase-4 .phase-label { color: #FFD700; }
+  .phase-4 h3 { color: white; }
+  .phase-4 li { color: white; border-bottom-color: rgba(255,255,255,0.15); }
+  .phase-4 li::before { color: #FFD700; }
+
+  .phase-label {
+    position: relative;
+    z-index: 1;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-mute);
+    margin-bottom: 16px;
+  }
+  .phase h3 {
+    position: relative;
+    z-index: 1;
+    font-size: 22px;
+    margin-bottom: 16px;
+  }
+  .phase ul {
+    position: relative;
+    z-index: 1;
+    list-style: none;
+  }
+  .phase li {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    font-size: 15px;
+    color: var(--ink-soft);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .phase li:last-child { border-bottom: none; }
+  .phase li::before {
+    content: '⚡';
+    color: var(--vm-red);
+  }
+  .phase-2 li::before { color: var(--volt-magenta); }
+  .phase-3 li::before { color: var(--o2-blue); }
+
+  /* ====== REMAINING INTENTS ====== */
+  .intents-section {
+    background: var(--bg-soft);
+  }
+  .intents-summary {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 48px;
+    padding: 32px;
+    background: white;
+    border-radius: 20px;
+    border: 1px solid var(--line);
+  }
+  @media (max-width: 800px) { .intents-summary { grid-template-columns: repeat(2, 1fr); } }
+  .summary-stat .num {
+    font-family: 'Sora', sans-serif;
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 1;
+    background: var(--gradient-volt);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 6px;
+  }
+  .summary-stat .lbl {
+    font-size: 13px;
+    color: var(--ink-mute);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .filter-bar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+  .filter-btn {
+    padding: 10px 22px;
+    border-radius: 100px;
+    border: 1.5px solid var(--line);
+    background: white;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink-soft);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .filter-btn:hover { border-color: var(--ink); color: var(--ink); }
+  .filter-btn.active {
+    background: var(--ink);
+    color: white;
+    border-color: var(--ink);
+  }
+  .filter-btn.active.brand-vm { background: var(--vm-red); border-color: var(--vm-red); }
+  .filter-btn.active.brand-o2 { background: var(--o2-blue); border-color: var(--o2-blue); }
+
+  .intents-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  @media (max-width: 1000px) { .intents-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { .intents-grid { grid-template-columns: 1fr; } }
+
+  .intent-card {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    position: relative;
+  }
+  .intent-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-soft);
+    border-color: var(--vm-red);
+  }
+  .intent-card.is-hidden { display: none; }
+
+  .brand-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 38px;
+    height: 26px;
+    padding: 0 10px;
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    color: white;
+    flex-shrink: 0;
+  }
+  .brand-pill.vm { background: var(--vm-red); }
+  .brand-pill.o2 { background: var(--o2-blue); }
+
+  .intent-body {
+    flex: 1;
+    min-width: 0;
+  }
+  .intent-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 6px;
+    line-height: 1.3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .intent-bar {
+    height: 4px;
+    background: var(--line);
+    border-radius: 100px;
+    overflow: hidden;
+    margin-bottom: 4px;
+  }
+  .intent-bar-fill {
+    height: 100%;
+    background: var(--gradient-volt);
+    border-radius: 100px;
+  }
+  .intent-volume {
+    font-family: 'Sora', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--ink-soft);
+  }
+  .kpis {
+    background: white;
+    color: var(--ink);
+  }
+  .kpis .section-eyebrow {
+    background: var(--gradient-volt-soft);
+    color: var(--vm-red);
+  }
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+    margin-top: 56px;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  @media (max-width: 900px) { .kpi-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 500px) { .kpi-grid { grid-template-columns: 1fr; } }
+  .kpi {
+    padding: 36px 24px;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .kpi:last-child { border-right: none; }
+  .kpi-value {
+    font-family: 'Sora', sans-serif;
+    font-size: 42px;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 8px;
+    background: var(--gradient-volt);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .kpi-label {
+    font-size: 13px;
+    color: var(--ink-soft);
+    font-weight: 600;
+  }
+
+  /* ====== BUILD OBJECTIVE (VIDEO) ====== */
+  .build-objective {
+    background: linear-gradient(160deg, #0F0F12 0%, #1A1A22 100%);
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+  .build-objective::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle at 85% 20%, rgba(255,20,147,0.12) 0%, transparent 50%),
+                      radial-gradient(circle at 15% 85%, rgba(0,168,225,0.1) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .build-objective .container { position: relative; z-index: 1; }
+  .build-objective .section-eyebrow {
+    background: rgba(255,255,255,0.08);
+    color: #FFD700;
+  }
+  .build-objective .section-title { color: white; }
+  .build-objective .section-lead { color: rgba(255,255,255,0.75); }
+
+  .bo-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 48px;
+    margin-top: 40px;
+    align-items: center;
+  }
+  @media (max-width: 1000px) { .bo-grid { grid-template-columns: 1fr; gap: 32px; } }
+
+  .bo-video {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #000;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.45), 0 0 0 1px rgba(255,255,255,0.06);
+    aspect-ratio: 16/9;
+  }
+  .bo-video video {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    border-radius: 20px;
+  }
+  .bo-video-badge {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 100px;
+    font-family: 'Sora', sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: white;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .bo-video-badge .live-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 100px;
+    background: #FF1493;
+    box-shadow: 0 0 0 4px rgba(255,20,147,0.25);
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+  @keyframes pulse-dot {
+    0%, 100% { box-shadow: 0 0 0 4px rgba(255,20,147,0.25); }
+    50% { box-shadow: 0 0 0 8px rgba(255,20,147,0.05); }
+  }
+
+  .bo-content h3 {
+    font-family: 'Sora', sans-serif;
+    font-size: clamp(24px, 3vw, 32px);
+    font-weight: 800;
+    line-height: 1.2;
+    color: white;
+    margin-bottom: 20px;
+    letter-spacing: -0.01em;
+  }
+  .bo-content h3 em {
+    font-style: normal;
+    background: linear-gradient(90deg, #FF1493 0%, #00A8E1 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .bo-content > p {
+    color: rgba(255,255,255,0.75);
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+
+  .bo-pillars {
+    display: grid;
+    gap: 12px;
+    margin-top: 24px;
+  }
+  .bo-pillar {
+    display: flex;
+    gap: 14px;
+    padding: 16px 18px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .bo-pillar:hover {
+    border-color: rgba(255,20,147,0.4);
+    background: rgba(255,255,255,0.06);
+  }
+  .bo-pillar-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    color: white;
+    flex-shrink: 0;
+  }
+  .bo-pillar-icon.p1 { background: linear-gradient(135deg, #FF1493 0%, #6A0DAD 100%); }
+  .bo-pillar-icon.p2 { background: linear-gradient(135deg, #0019A5 0%, #00A8E1 100%); }
+  .bo-pillar-icon.p3 { background: linear-gradient(135deg, #FF8800 0%, #E10A0A 100%); }
+  .bo-pillar-text { flex: 1; min-width: 0; }
+  .bo-pillar-text .pt {
+    font-family: 'Sora', sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 2px;
+  }
+  .bo-pillar-text .ps {
+    font-size: 13px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.4;
+  }
+
+  /* ====== OPERATING MODEL ====== */
+  .om-lead-line {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 56px;
+    padding-top: 16px;
+    border-top: 3px solid;
+    border-image: var(--gradient-volt) 1;
+    max-width: 720px;
+  }
+  .om-lead-text {
+    font-size: 17px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+
+  .squads {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+  @media (max-width: 1000px) { .squads { grid-template-columns: 1fr; } }
+
+  .squad {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .squad:hover { transform: translateY(-3px); box-shadow: var(--shadow-soft); }
+
+  .squad-banner {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    color: white;
+    font-family: 'Sora', sans-serif;
+    font-weight: 800;
+  }
+  .squad-banner-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px 22px;
+    flex-shrink: 0;
+  }
+  .squad-banner-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.18);
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+  }
+  .squad-banner-num {
+    font-size: 22px;
+    letter-spacing: 0.04em;
+  }
+  .squad-banner-tag {
+    flex: 1;
+    padding: 18px 22px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: rgba(0,0,0,0.18);
+  }
+
+  .squad-1 .squad-banner { background: linear-gradient(90deg, #4A148C 0%, #6A0DAD 100%); }
+  .squad-2 .squad-banner { background: linear-gradient(90deg, #0019A5 0%, #1F2A8A 100%); }
+
+  .squad-intents {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 22px;
+    background: var(--bg-soft);
+    border-bottom: 1px solid var(--line);
+    font-size: 13.5px;
+    color: var(--ink-soft);
+  }
+  .squad-intents .target-icon {
+    width: 22px;
+    height: 22px;
+    border-radius: 100px;
+    background: rgba(106, 13, 173, 0.12);
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+  }
+  .squad-2 .squad-intents .target-icon { background: rgba(0, 25, 165, 0.12); }
+  .squad-intents strong {
+    color: var(--ink);
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    margin-right: 4px;
+  }
+  .squad-intents .core {
+    color: var(--volt-magenta);
+    font-weight: 800;
+  }
+
+  .partners {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    padding: 24px 16px;
+  }
+  @media (max-width: 600px) { .partners { grid-template-columns: 1fr; gap: 16px; } }
+
+  .partner {
+    padding: 0 12px;
+    border-right: 1px solid var(--line);
+  }
+  .partner:last-child { border-right: none; }
+  @media (max-width: 600px) { .partner { border-right: none; border-bottom: 1px solid var(--line); padding-bottom: 16px; } }
+  @media (max-width: 600px) { .partner:last-child { border-bottom: none; } }
+
+  .partner-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .partner-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 100px;
+    display: grid;
+    place-items: center;
+    color: white;
+    font-family: 'Sora', sans-serif;
+    font-weight: 800;
+    font-size: 13px;
+    flex-shrink: 0;
+  }
+  .partner-avatar.google { background: var(--volt-purple); }
+  .partner-avatar.accenture { background: var(--volt-magenta); }
+  .partner-avatar.vmo2 { background: var(--o2-cyan); }
+  .partner-name {
+    font-family: 'Sora', sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .partner-name.google { color: var(--volt-purple); }
+  .partner-name.accenture { color: var(--volt-magenta); }
+  .partner-name.vmo2 { color: var(--o2-cyan); }
+
+  .partner-roles {
+    list-style: none;
+  }
+  .partner-roles li {
+    padding: 4px 0;
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    position: relative;
+    padding-left: 14px;
+  }
+  .partner-roles li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 11px;
+    width: 4px;
+    height: 4px;
+    border-radius: 100px;
+    background: var(--ink-mute);
+  }
+
+  /* Ways of Working / Governance / One Goal */
+  .om-bottom {
+    background: var(--bg-soft);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 32px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 32px;
+    margin-bottom: 24px;
+  }
+  @media (max-width: 1000px) { .om-bottom { grid-template-columns: 1fr; gap: 28px; } }
+
+  .om-block {
+    display: flex;
+    gap: 18px;
+  }
+  .om-block-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 100px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+  }
+  .om-block-icon.wow { background: rgba(106, 13, 173, 0.1); color: var(--volt-purple); }
+  .om-block-icon.gov { background: rgba(0, 25, 165, 0.1); color: var(--o2-blue); }
+  .om-block-icon.goal { background: rgba(46, 196, 182, 0.12); color: #2EC4B6; }
+
+  .om-block-content {
+    flex: 1;
+    min-width: 0;
+  }
+  .om-block-title {
     font-family: 'Sora', sans-serif;
     font-size: 13px;
     font-weight: 800;
     letter-spacing: 0.1em;
-    color: var(--vm-red-deep);
+    text-transform: uppercase;
     margin-bottom: 12px;
   }
-  .step h3 {
-    font-size: 22px;
-    margin-bottom: 14px;
-    color: var(--ink);
-  }
-  .step p {
-    color: var(--ink-soft);
-    font-size: 15px;
-    line-height: 1.55;
-    margin-bottom: 24px;
-  }
-  .step-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 6px 12px;
-    border-radius: 100px;
-    font-size: 12px;
-    font-weight: 700;
-    color: white;
-    align-self: flex-start;
-    margin-top: auto;
-  }
-  .step:nth-child(1) .step-tag { background: linear-gradient(90deg, #E10A0A 0%, #B30000 100%); }
-  .step:nth-child(2) .step-tag { background: linear-gradient(90deg, #0019A5 0%, #4A148C 100%); }
-  .step:nth-child(3) .step-tag { background: linear-gradient(90deg, #6A0DAD 0%, #E10A0A 100%); }
+  .om-block-title.wow { color: var(--volt-purple); }
+  .om-block-title.gov { color: var(--o2-blue); }
+  .om-block-title.goal { color: #2EC4B6; }
 
-  /* ===== DELIVERY TIMELINE (Gantt with milestones) ===== */
-  .poc-timeline {
+  .om-block ul {
+    list-style: none;
+  }
+  .om-block li {
+    padding: 4px 0;
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    line-height: 1.4;
+  }
+  .om-block li svg {
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .om-goal-text {
+    font-size: 14px;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+
+  /* Principle line at bottom */
+  .om-principle {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 28px;
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+  }
+  .om-principle-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: rgba(255, 20, 147, 0.1);
+    display: grid;
+    place-items: center;
+    color: var(--volt-magenta);
+    flex-shrink: 0;
+  }
+  .om-principle-label {
+    font-family: 'Sora', sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink);
+    flex-shrink: 0;
+  }
+  .om-principle-text {
+    font-size: 15px;
+    color: var(--ink-soft);
+    flex: 1;
+    min-width: 0;
+  }
+  .om-principle-text em {
+    font-style: normal;
+    color: var(--volt-magenta);
+    font-weight: 700;
+  }
+
+  /* ====== VOICE & DIGITAL ALIGNMENT ====== */
+  .alignment {
+    background: var(--bg-soft);
+  }
+  .alignment-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 48px;
+    position: relative;
+  }
+  @media (max-width: 1000px) { .alignment-grid { grid-template-columns: 1fr; } }
+
+  .team-card {
     background: white;
     border: 1px solid var(--line);
     border-radius: 20px;
-    padding: 32px;
-    overflow-x: auto;
-    margin-top: 8px;
-  }
-  @media (max-width: 700px) { .poc-timeline { padding: 20px; } }
-  .poc-inner { min-width: 1100px; }
-
-  .poc-head {
-    display: grid;
-    grid-template-columns: 180px repeat(7, 1fr);
-    padding-bottom: 14px;
-    border-bottom: 2px solid var(--line);
-    margin-bottom: 0;
-  }
-  .poc-head-cell {
-    font-family: 'Sora', sans-serif;
-    font-size: 13px;
-    font-weight: 800;
-    color: var(--ink);
-    padding: 0 12px;
-    border-left: 1px solid var(--line);
-    line-height: 1.2;
-  }
-  .poc-head-cell:first-child {
-    text-align: left;
-    border-left: none;
-    font-size: 12px;
-    color: var(--ink-mute);
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-  }
-
-  .poc-row {
-    display: grid;
-    grid-template-columns: 180px 1fr;
-    align-items: stretch;
-    border-bottom: 1px solid var(--line);
-    min-height: 82px;
-  }
-  .poc-row:last-child { border-bottom: none; }
-
-  .poc-label {
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--ink);
-    padding: 22px 12px 22px 0;
-    align-self: center;
-  }
-
-  .poc-track {
-    position: relative;
-    height: 82px;
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-  }
-  .poc-cell {
-    border-left: 1px solid var(--line);
-    height: 100%;
-  }
-
-  /* Bars — solid = active, dashed = scheduled */
-  .poc-bar {
-    position: absolute;
-    bottom: 22px;
-    height: 14px;
-    background: #0F8A3E;
-    border-radius: 100px;
-    box-shadow: 0 2px 6px rgba(15,138,62,0.15);
-    transform-origin: left center;
-    animation: ganttGrow 1s cubic-bezier(0.22, 1, 0.36, 1) both;
-  }
-  .poc-bar.dashed {
-    background: transparent;
-    border: 2px dashed #0F8A3E;
-    box-shadow: none;
-    box-sizing: border-box;
-  }
-  @keyframes ganttGrow {
-    from { transform: scaleX(0); }
-    to { transform: scaleX(1); }
-  }
-
-  /* Milestone label (% + date) sits above the bar */
-  .poc-milestone {
-    position: absolute;
-    bottom: 42px;
-    text-align: center;
-    transform: translateX(-50%);
-    line-height: 1.2;
-    min-width: 44px;
-    pointer-events: none;
-  }
-  .poc-milestone .pct {
-    font-family: 'Sora', sans-serif;
-    font-size: 12px;
-    font-weight: 800;
-    color: #0F8A3E;
-    display: block;
-    white-space: nowrap;
-  }
-  .poc-milestone .date {
-    font-size: 10px;
-    color: var(--ink-mute);
-    font-weight: 500;
-    display: block;
-    margin-top: 3px;
-    white-space: nowrap;
-  }
-  /* "First 50" milestone sits to the left of its anchor so it doesn't collide with the next % marker */
-  .poc-milestone.first-50 {
-    transform: translateX(-100%);
-    text-align: right;
-    padding-right: 10px;
-  }
-
-  /* Diamond marker for kickoff / First 50 events */
-  .poc-diamond {
-    position: absolute;
-    bottom: 12px;
-    transform: translateX(-50%) rotate(45deg);
-    width: 9px;
-    height: 9px;
-    background: var(--ink);
-  }
-
-  /* "In planning" rows */
-  .poc-row.planning .poc-track {
-    background: var(--bg-soft);
-    display: flex;
-    align-items: center;
-    padding-left: 20px;
-  }
-  .poc-row.planning .poc-track .poc-planning-text {
-    font-style: italic;
-    color: var(--ink-mute);
-    font-size: 14px;
-    font-weight: 500;
-  }
-
-  /* "Decision to be made" rows - flagged red for escalation */
-  .poc-row.decision .poc-track {
-    background: linear-gradient(90deg, rgba(225,10,10,0.09) 0%, rgba(225,10,10,0.03) 100%);
-    display: flex;
-    align-items: center;
-    padding-left: 20px;
-    border-left: 3px solid var(--vm-red);
-  }
-  .poc-row.decision .poc-track .poc-planning-text {
-    font-style: normal;
-    color: var(--vm-red-deep);
-    font-size: 14px;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .poc-row.decision .poc-track .poc-planning-text::before {
-    content: '';
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    border-radius: 100px;
-    background: var(--vm-red);
-    box-shadow: 0 0 0 4px rgba(225,10,10,0.2);
-  }
-  .poc-row.decision .poc-label {
-    color: var(--vm-red-deep);
-  }
-
-  /* Legend */
-  .poc-legend {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-    margin-top: 20px;
-    padding-top: 20px;
-    border-top: 1px solid var(--line);
-    font-size: 13px;
-    color: var(--ink-soft);
-    flex-wrap: wrap;
-  }
-  .poc-legend-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-weight: 600;
-  }
-  .poc-legend-swatch {
-    width: 24px;
-    height: 10px;
-    border-radius: 100px;
-    background: #0F8A3E;
-  }
-  .poc-legend-swatch.dashed {
-    background: transparent;
-    border: 2px dashed #0F8A3E;
-    box-sizing: border-box;
-    height: 12px;
-  }
-  .poc-legend-swatch.diamond {
-    width: 10px;
-    height: 10px;
-    border-radius: 0;
-    background: var(--ink);
-    transform: rotate(45deg);
-  }
-  .poc-legend-swatch.planning {
-    background: var(--bg-soft);
-    border: 1px solid var(--line);
-  }
-
-  /* ===== OPEX AVOIDANCE (dark section, green accent for gain/savings) ===== */
-  .opex {
-    background: #0F0F0F;
-    color: white;
+    padding: 36px;
     position: relative;
     overflow: hidden;
-    --opex-green: #16A34A;
-    --opex-green-light: #4ADE80;
-    --opex-green-deep: #15803D;
-    --opex-gradient: linear-gradient(135deg, #4ADE80 0%, #16A34A 50%, #15803D 100%);
+    transition: transform 0.3s, box-shadow 0.3s;
   }
-  .opex::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: radial-gradient(circle at 85% 20%, rgba(22,163,74,0.18) 0%, transparent 55%),
-                      radial-gradient(circle at 10% 90%, rgba(74,222,128,0.10) 0%, transparent 55%);
-    pointer-events: none;
-  }
-  .opex .container { position: relative; z-index: 1; }
-  .opex .section-eyebrow {
-    background: rgba(255,255,255,0.08);
-    color: #4ADE80;
-  }
-  .opex .section-title {
-    color: white;
-    margin-bottom: 24px;
-  }
-  .opex .section-title em {
-    font-style: normal;
-    background: var(--opex-gradient);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-  .opex .section-lead {
-    color: rgba(255,255,255,0.7);
-    margin-bottom: 48px;
-    max-width: 640px;
-  }
+  .team-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-soft); }
 
-  .opex-headline {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 40px;
-    align-items: center;
-    padding: 28px 32px;
-    background: linear-gradient(135deg, rgba(22,163,74,0.16) 0%, rgba(21,128,61,0.06) 100%);
-    border: 1px solid rgba(74,222,128,0.3);
-    border-radius: 20px;
-    margin-bottom: 40px;
-  }
-  @media (max-width: 700px) { .opex-headline { grid-template-columns: 1fr; gap: 16px; padding: 24px; } }
-  .opex-headline-num {
-    font-family: 'Sora', sans-serif;
-    font-size: clamp(48px, 6vw, 72px);
-    font-weight: 800;
-    line-height: 1;
-    color: white;
-    letter-spacing: -0.02em;
-    font-variant-numeric: tabular-nums;
-  }
-  .opex-headline-num em {
-    font-style: normal;
-    background: var(--opex-gradient);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-  .opex-headline-text {
-    font-size: 15px;
-    color: rgba(255,255,255,0.85);
-    line-height: 1.5;
-  }
-  .opex-headline-text strong {
-    color: white;
-    font-family: 'Sora', sans-serif;
-    font-weight: 800;
-    display: block;
-    font-size: 16px;
-    margin-bottom: 4px;
-  }
-
-  .opex-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-  }
-  @media (max-width: 900px) { .opex-grid { grid-template-columns: 1fr; } }
-
-  .opex-card {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 20px;
-    padding: 32px 28px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    transition: transform 0.2s, border-color 0.2s, background 0.2s;
-    position: relative;
-    overflow: hidden;
-  }
-  .opex-card::before {
+  .team-card::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    height: 3px;
-    background: var(--opex-gradient);
-    opacity: 0.9;
+    height: 6px;
   }
-  .opex-card:hover {
-    transform: translateY(-4px);
-    border-color: rgba(74,222,128,0.45);
-    background: rgba(255,255,255,0.05);
-  }
+  .team-voice::before { background: linear-gradient(90deg, #FF8800 0%, #E10A0A 100%); }
+  .team-digital::before { background: linear-gradient(90deg, #0019A5 0%, #00A8E1 100%); }
 
-  .opex-card-name {
-    font-family: 'Sora', sans-serif;
-    font-size: 13px;
-    font-weight: 800;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.6);
-  }
-  .opex-figure {
-    font-family: 'Sora', sans-serif;
-    font-size: clamp(56px, 6vw, 76px);
-    font-weight: 800;
-    line-height: 0.95;
-    color: white;
-    letter-spacing: -0.03em;
-    font-variant-numeric: tabular-nums;
-  }
-  .opex-caption {
-    font-size: 12px;
-    color: rgba(255,255,255,0.5);
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    margin-top: -12px;
-  }
-  .opex-containment {
+  .team-head {
     display: flex;
-    align-items: baseline;
-    gap: 10px;
-    padding-top: 18px;
-    border-top: 1px solid rgba(255,255,255,0.12);
-    margin-top: auto;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
   }
-  .opex-containment-pct {
-    font-family: 'Sora', sans-serif;
-    font-size: 32px;
-    font-weight: 800;
-    color: #4ADE80;
-    line-height: 1;
-    letter-spacing: -0.02em;
-    font-variant-numeric: tabular-nums;
-  }
-  .opex-containment-label {
-    font-size: 12px;
-    color: rgba(255,255,255,0.6);
-    line-height: 1.3;
-    font-weight: 500;
-  }
-
-    /* ===== DELIVERY APPROACH (CCAI vs TCS) ===== */
-
-  .delivery-bg { background: var(--bg-soft); }
-  .responsibilities {
+  .team-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    margin-top: 8px;
+    place-items: center;
+    color: white;
+    flex-shrink: 0;
   }
-  @media (max-width: 900px) { .responsibilities { grid-template-columns: 1fr; } }
-  .resp-card {
+  .team-icon.voice { background: linear-gradient(135deg, #FF8800 0%, #E10A0A 100%); }
+  .team-icon.digital { background: linear-gradient(135deg, #0019A5 0%, #00A8E1 100%); }
+
+  .team-meta .label {
+    font-family: 'Sora', sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-bottom: 2px;
+  }
+  .team-meta .name {
+    font-family: 'Sora', sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 1.1;
+  }
+
+  .team-card .headline {
+    font-family: 'Sora', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 14px;
+    line-height: 1.3;
+  }
+  .team-card .body {
+    color: var(--ink-soft);
+    font-size: 15px;
+    line-height: 1.55;
+    margin-bottom: 20px;
+  }
+  .team-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .team-pill {
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 700;
+    background: var(--bg-soft);
+    border: 1px solid var(--line);
+    color: var(--ink-soft);
+  }
+  .team-voice .team-pill { background: rgba(225,10,10,0.06); border-color: rgba(225,10,10,0.18); color: var(--vm-red-deep); }
+  .team-digital .team-pill { background: rgba(0,25,165,0.06); border-color: rgba(0,25,165,0.18); color: var(--o2-blue); }
+
+  /* Connector between cards */
+  .alignment-connector {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 56px;
+    height: 56px;
+    border-radius: 100px;
+    background: white;
+    border: 2px solid var(--line);
+    display: grid;
+    place-items: center;
+    color: var(--volt-magenta);
+    z-index: 2;
+    box-shadow: var(--shadow-soft);
+  }
+  @media (max-width: 1000px) { .alignment-connector { display: none; } }
+
+  /* Workflow / Synergy diagram */
+  .workflow {
+    margin-top: 32px;
     background: white;
     border: 1px solid var(--line);
     border-radius: 20px;
+    padding: 32px 36px;
+    position: relative;
     overflow: hidden;
-    transition: transform 0.2s, box-shadow 0.2s;
   }
-  .resp-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-soft); }
-  .resp-banner {
-    padding: 22px 28px;
+  .workflow-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+  .workflow-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Sora', sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--volt-magenta);
+    white-space: nowrap;
+  }
+  .workflow-title {
+    font-family: 'Sora', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .workflow-title em {
+    font-style: normal;
+    background: linear-gradient(90deg, #FF8800 0%, #E10A0A 50%, #0019A5 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .synergy {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 0;
+    align-items: stretch;
+    position: relative;
+  }
+  @media (max-width: 800px) {
+    .synergy { grid-template-columns: 1fr; }
+  }
+
+  .synergy-track {
+    padding: 22px 24px;
+    border-radius: 16px;
+    position: relative;
+    border: 1.5px solid;
+  }
+  .synergy-track.voice {
+    background: linear-gradient(135deg, rgba(255,136,0,0.06) 0%, rgba(225,10,10,0.06) 100%);
+    border-color: rgba(225,10,10,0.2);
+  }
+  .synergy-track.digital {
+    background: linear-gradient(135deg, rgba(0,25,165,0.06) 0%, rgba(0,168,225,0.06) 100%);
+    border-color: rgba(0,25,165,0.2);
+  }
+  .synergy-track-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .synergy-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    border-radius: 100px;
+    font-family: 'Sora', sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     color: white;
+  }
+  .synergy-pill.voice { background: linear-gradient(135deg, #FF8800 0%, #E10A0A 100%); }
+  .synergy-pill.digital { background: linear-gradient(135deg, #0019A5 0%, #00A8E1 100%); }
+  .synergy-stage-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--ink-mute);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .synergy-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .synergy-step {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    background: white;
+    border-radius: 12px;
+    border: 1px solid var(--line);
+    font-size: 14px;
+    color: var(--ink);
+    font-weight: 600;
+  }
+  .synergy-step .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 100px;
+    flex-shrink: 0;
+  }
+  .voice .synergy-step .dot { background: #E10A0A; }
+  .digital .synergy-step .dot { background: #0019A5; }
+
+  /* Convergence hub in the middle */
+  .synergy-hub {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 28px;
+    position: relative;
+  }
+  @media (max-width: 800px) {
+    .synergy-hub { padding: 18px 0; flex-direction: row; gap: 12px; }
+  }
+
+  /* Horizontal flow lines into hub */
+  .synergy-hub::before,
+  .synergy-hub::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    height: 2px;
+    width: 30px;
+    background: linear-gradient(90deg, transparent 0%, currentColor 50%, transparent 100%);
+  }
+  .synergy-hub::before {
+    right: 100%;
+    color: #E10A0A;
+  }
+  .synergy-hub::after {
+    left: 100%;
+    color: #0019A5;
+  }
+  @media (max-width: 800px) {
+    .synergy-hub::before, .synergy-hub::after { display: none; }
+  }
+
+  .synergy-core {
+    width: 92px;
+    height: 92px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #FF1493 0%, #6A0DAD 60%, #4A148C 100%);
+    display: grid;
+    place-items: center;
+    color: white;
+    box-shadow: 0 10px 30px rgba(255,20,147,0.35), 0 0 0 6px rgba(255,20,147,0.08);
+    position: relative;
+    z-index: 1;
+    animation: pulse-hub 3s ease-in-out infinite;
+  }
+  @keyframes pulse-hub {
+    0%, 100% { box-shadow: 0 10px 30px rgba(255,20,147,0.35), 0 0 0 6px rgba(255,20,147,0.08); }
+    50% { box-shadow: 0 12px 36px rgba(255,20,147,0.5), 0 0 0 12px rgba(255,20,147,0.1); }
+  }
+  .synergy-core svg { width: 36px; height: 36px; }
+
+  .synergy-hub-label {
+    margin-top: 12px;
+    font-family: 'Sora', sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--volt-magenta);
+    text-align: center;
+    line-height: 1.3;
+  }
+  @media (max-width: 800px) {
+    .synergy-hub-label { margin-top: 0; text-align: left; }
+  }
+
+  .synergy-outcome {
+    margin-top: 24px;
+    padding: 18px 22px;
+    background: linear-gradient(90deg, rgba(255,20,147,0.06) 0%, rgba(106,13,173,0.06) 100%);
+    border: 1px dashed rgba(255,20,147,0.3);
+    border-radius: 14px;
     display: flex;
     align-items: center;
     gap: 14px;
   }
-  .resp-ccai .resp-banner { background: linear-gradient(90deg, #E10A0A 0%, #B30000 100%); }
-  .resp-tcs .resp-banner { background: linear-gradient(90deg, #0019A5 0%, #4A148C 100%); }
-  .resp-icon {
-    width: 40px;
-    height: 40px;
+  .synergy-outcome .icon {
+    width: 36px;
+    height: 36px;
     border-radius: 10px;
-    background: rgba(255,255,255,0.2);
+    background: linear-gradient(135deg, #FF1493 0%, #6A0DAD 100%);
     display: grid;
     place-items: center;
-    flex-shrink: 0;
     color: white;
+    flex-shrink: 0;
   }
-  .resp-title {
-    font-family: 'Sora', sans-serif;
-    font-weight: 800;
-    font-size: 20px;
-    line-height: 1.1;
-  }
-  .resp-sub {
-    font-family: 'Inter', sans-serif;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    opacity: 0.85;
-    margin-top: 4px;
-  }
-  .resp-list {
-    list-style: none;
-    padding: 12px 28px 28px;
-  }
-  .resp-list li {
-    padding: 12px 0;
-    border-bottom: 1px solid var(--line);
+  .synergy-outcome .text {
     font-size: 15px;
     color: var(--ink);
-    display: grid;
-    grid-template-columns: 22px 1fr;
-    gap: 10px;
-    align-items: center;
+    line-height: 1.45;
   }
-  .resp-list li:last-child { border-bottom: none; }
-  .resp-list li svg { color: var(--vm-red); }
-  .resp-tcs .resp-list li svg { color: var(--o2-blue); }
+  .synergy-outcome .text strong { color: var(--volt-magenta); }
 
-  /* ===== RISKS ===== */
-  .risks-frame {
+  /* Special project callout */
+  .special-project {
+    margin-top: 24px;
+    background: linear-gradient(135deg, #4A148C 0%, #6A0DAD 50%, #E10A0A 100%);
+    border-radius: 20px;
+    padding: 32px 36px;
+    color: white;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    margin-top: 8px;
+    grid-template-columns: auto 1fr auto;
+    gap: 28px;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
   }
-  @media (max-width: 800px) { .risks-frame { grid-template-columns: 1fr; } }
+  .special-project::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle at 90% 20%, rgba(255,255,255,0.15) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  @media (max-width: 800px) { .special-project { grid-template-columns: 1fr; gap: 16px; } }
+
+  .sp-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    position: relative;
+    z-index: 1;
+  }
+  .sp-text {
+    font-size: 16px;
+    line-height: 1.45;
+    position: relative;
+    z-index: 1;
+  }
+  .sp-text strong { font-weight: 800; }
+  .sp-google {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    background: white;
+    color: var(--volt-purple);
+    border-radius: 100px;
+    font-family: 'Sora', sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ====== RISKS ====== */
+  .risks-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+  }
+  @media (max-width: 900px) { .risks-grid { grid-template-columns: 1fr; } }
   .risk-card {
     background: white;
     border: 1px solid var(--line);
-    border-left: 4px solid var(--vm-red);
-    border-radius: 16px;
-    padding: 28px;
+    border-radius: 20px;
+    padding: 32px;
+    border-left: 6px solid var(--vm-red);
   }
-  .risk-card .risk-tag {
-    display: inline-block;
-    font-family: 'Sora', sans-serif;
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--vm-red-deep);
-    margin-bottom: 12px;
-  }
+  .risk-card:nth-child(2) { border-left-color: var(--volt-magenta); }
+  .risk-card:nth-child(3) { border-left-color: var(--o2-blue); }
   .risk-card h3 {
     font-size: 20px;
-    margin-bottom: 12px;
+    margin-bottom: 14px;
+  }
+  .risk-row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 14px;
+    font-size: 14px;
+  }
+  .risk-row:last-child { margin-bottom: 0; }
+  .risk-row strong {
+    min-width: 80px;
+    font-weight: 700;
     color: var(--ink);
   }
-  .risk-card p {
+  .risk-row span { color: var(--ink-soft); }
+
+  /* ====== OPEX OPTIMISATION ====== */
+  .opex {
+    background: white;
+  }
+  .opex-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 64px;
+    align-items: center;
+    margin-top: 48px;
+  }
+  @media (max-width: 900px) { .opex-wrap { grid-template-columns: 1fr; gap: 40px; } }
+
+  .opex-summary {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .opex-total {
+    background: linear-gradient(135deg, #FFE5E5 0%, #FFE5F5 50%, #E5EAFF 100%);
+    border-radius: 24px;
+    padding: 40px;
+    text-align: left;
+  }
+  .opex-total-label {
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 12px;
+  }
+  .opex-total-value {
+    font-family: 'Sora', sans-serif;
+    font-size: 64px;
+    font-weight: 800;
+    line-height: 1;
+    background: var(--gradient-volt);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 8px;
+  }
+  .opex-total-sub {
     font-size: 15px;
     color: var(--ink-soft);
-    line-height: 1.55;
+  }
+  .opex-callouts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .opex-callout {
+    background: var(--bg-soft);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 18px 20px;
+  }
+  .opex-callout-num {
+    font-family: 'Sora', sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .opex-callout-lbl {
+    font-size: 12px;
+    color: var(--ink-mute);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .opex-chart {
+    background: var(--bg-soft);
+    border-radius: 24px;
+    padding: 40px 36px 32px;
+    border: 1px solid var(--line);
+  }
+  .opex-chart-title {
+    font-family: 'Sora', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--ink-soft);
+    margin-bottom: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .opex-chart-title span:last-child {
+    font-size: 12px;
+    color: var(--ink-mute);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .bars {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    height: 320px;
+    align-items: end;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--line);
     margin-bottom: 16px;
   }
-  .risk-card .mitigation {
-    padding-top: 16px;
-    border-top: 1px solid var(--line);
-    font-size: 14px;
-    color: var(--ink);
+  .bar-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    justify-content: flex-end;
+    position: relative;
   }
-  .risk-card .mitigation strong {
-    display: block;
+  .bar-value {
+    font-family: 'Sora', sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--ink);
+    margin-bottom: 10px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease-out forwards;
+    animation-delay: 1.2s;
+  }
+  .bar {
+    width: 100%;
+    max-width: 90px;
+    border-radius: 12px 12px 0 0;
+    height: 0;
+    transition: height 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+    position: relative;
+    overflow: hidden;
+  }
+  .bar::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 60%);
+    pointer-events: none;
+  }
+  .bar-1 { background: linear-gradient(180deg, #FF6B6B 0%, #E10A0A 100%); }
+  .bar-2 { background: linear-gradient(180deg, #FF4D8A 0%, #FF1493 100%); }
+  .bar-3 { background: linear-gradient(180deg, #A055D6 0%, #6A0DAD 100%); }
+  .bar-4 { background: linear-gradient(180deg, #4D6FFF 0%, #0019A5 100%); }
+
+  .bar-labels {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+  .bar-label {
+    text-align: center;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--ink-soft);
+  }
+
+  /* ====== VALUE MAP (GANTT) ====== */
+  .valuemap {
+    background: var(--bg-soft);
+  }
+  .gantt {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    padding: 32px;
+    margin-top: 48px;
+    overflow-x: auto;
+  }
+  .gantt-inner {
+    min-width: 1120px;
+  }
+
+  /* Brand badge in gantt row label */
+  .gantt-brand {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 32px;
+    height: 22px;
+    padding: 0 8px;
+    border-radius: 6px;
     font-family: 'Sora', sans-serif;
     font-size: 11px;
     font-weight: 800;
-    letter-spacing: 0.1em;
+    color: white;
+    flex-shrink: 0;
+    letter-spacing: 0.04em;
+  }
+  .gantt-brand.vm { background: var(--vm-red); }
+  .gantt-brand.o2 { background: var(--o2-blue); }
+
+  /* Three-segment phase bar: Agent Build → Gen UI Build → Optimise */
+  .gantt-segment {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 6px;
+    color: white;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    transform-origin: left center;
+    animation: ganttGrow 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+    text-transform: uppercase;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  /* Left cap for first phase, right cap for last */
+  .gantt-segment.agent { border-radius: 100px 4px 4px 100px; }
+  .gantt-segment.genui { border-radius: 4px; }
+  .gantt-segment.optimise { border-radius: 4px 100px 100px 4px; }
+  /* Stand-alone (single bar with no neighbours) — fully rounded */
+  .gantt-segment.solo { border-radius: 100px; }
+
+  /* VM brand colour ramp */
+  .gantt-segment.agent.vm { background: linear-gradient(90deg, #FF6B6B 0%, #E10A0A 100%); }
+  .gantt-segment.genui.vm { background: linear-gradient(90deg, #FF1493 0%, #C2185B 100%); }
+  .gantt-segment.optimise.vm { background: linear-gradient(90deg, #A055D6 0%, #6A0DAD 100%); }
+
+  /* O2 brand colour ramp */
+  .gantt-segment.agent.o2 { background: linear-gradient(90deg, #4D6FFF 0%, #0019A5 100%); }
+  .gantt-segment.genui.o2 { background: linear-gradient(90deg, #00A8E1 0%, #0066B3 100%); }
+  .gantt-segment.optimise.o2 { background: linear-gradient(90deg, #2EC4B6 0%, #1A9C8E 100%); }
+
+  .gantt-head {
+    display: grid;
+    grid-template-columns: 240px repeat(9, 1fr);
+    gap: 0;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--line);
+    margin-bottom: 8px;
+  }
+  .gantt-head-cell {
+    font-family: 'Sora', sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--ink-mute);
-    margin-bottom: 6px;
+    text-align: center;
+    border-left: 1px solid var(--line);
+    padding: 0 12px;
   }
-
-
-  /* ===== VIDEO DEMO ===== */
-  .demo-card {
+  .gantt-head-cell:first-child {
+    text-align: left;
+    border-left: none;
+  }
+  .gantt-head-year {
     display: block;
-    max-width: 900px;
-    margin: 8px auto 0;
-    background: white;
-    border: 1px solid var(--line);
-    border-radius: 20px;
-    overflow: hidden;
-    text-decoration: none;
-    color: inherit;
-    transition: transform 0.25s cubic-bezier(0.22,1,0.36,1), box-shadow 0.25s;
-    box-shadow: var(--shadow-soft);
+    font-size: 11px;
+    color: var(--ink-mute);
+    font-weight: 600;
+    margin-top: 2px;
+    opacity: 0.6;
   }
-  .demo-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.12);
-  }
-  .demo-preview {
-    position: relative;
-    aspect-ratio: 16 / 9;
-    background: linear-gradient(135deg, #0F0F0F 0%, #1A1A22 100%);
+
+  .gantt-row {
     display: grid;
-    place-items: center;
-    overflow: hidden;
+    grid-template-columns: 240px 1fr;
+    align-items: center;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+    transition: background 0.2s;
   }
-  .demo-preview::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: radial-gradient(circle at 30% 35%, rgba(225,10,10,0.18) 0%, transparent 55%),
-                      radial-gradient(circle at 75% 70%, rgba(0,25,165,0.12) 0%, transparent 55%);
-    pointer-events: none;
-  }
-  .demo-preview::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-                      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-    background-size: 40px 40px;
-    pointer-events: none;
-  }
-  .demo-play-btn {
-    position: relative;
-    width: 96px;
-    height: 96px;
-    border-radius: 100px;
-    background: rgba(255,255,255,0.14);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 2px solid rgba(255,255,255,0.55);
-    display: grid;
-    place-items: center;
-    transition: transform 0.25s, background 0.25s, border-color 0.25s;
-    z-index: 2;
-    color: white;
-  }
-  .demo-card:hover .demo-play-btn {
-    background: var(--vm-red);
-    border-color: var(--vm-red);
-    transform: scale(1.08);
-    box-shadow: 0 10px 30px rgba(225,10,10,0.4);
-  }
-  .demo-play-btn svg {
-    margin-left: 6px;
-  }
-  .demo-label {
-    position: absolute;
-    top: 22px;
-    left: 26px;
-    color: white;
-    font-family: 'Sora', sans-serif;
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    z-index: 2;
+  .gantt-row:last-child { border-bottom: none; }
+  .gantt-row:hover { background: var(--bg-soft); }
+
+  .gantt-label {
     display: flex;
     align-items: center;
     gap: 10px;
+    padding-right: 16px;
   }
-  .demo-label .live-dot {
-    width: 8px;
-    height: 8px;
+  .gantt-label .name {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .gantt-label .sub {
+    font-size: 11px;
+    color: var(--ink-mute);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .gantt-tier {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 28px;
+    height: 22px;
+    padding: 0 8px;
     border-radius: 100px;
-    background: var(--vm-red);
-    box-shadow: 0 0 0 4px rgba(225,10,10,0.25);
-  }
-  .demo-source {
-    position: absolute;
-    top: 22px;
-    right: 26px;
-    color: rgba(255,255,255,0.55);
     font-family: 'Sora', sans-serif;
     font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    z-index: 2;
+    font-weight: 800;
+    color: white;
+    flex-shrink: 0;
   }
-  .demo-cta-row {
+  .gantt-tier.t1 { background: var(--vm-red); }
+  .gantt-tier.t2 { background: var(--volt-magenta); }
+  .gantt-tier.t3 { background: var(--volt-purple); }
+  .gantt-tier.t4 { background: var(--ink); }
+
+  .gantt-track {
+    position: relative;
+    height: 36px;
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    gap: 0;
+  }
+  .gantt-track::before,
+  .gantt-track::after,
+  .gantt-cell {
+    position: relative;
+    border-left: 1px solid var(--line);
+    height: 100%;
+  }
+  .gantt-cell:first-child { border-left: 1px solid var(--line); }
+
+  .gantt-bar {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 14px;
+    border-radius: 100px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 22px 28px;
-    background: white;
-    border-top: 1px solid var(--line);
+    padding: 0 10px;
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    overflow: hidden;
+    transform-origin: left center;
+    animation: ganttGrow 1s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
-  .demo-cta-left {
+  @keyframes ganttGrow {
+    from { transform: translateY(-50%) scaleX(0); }
+    to { transform: translateY(-50%) scaleX(1); }
+  }
+  .gantt-bar.t1 { background: linear-gradient(90deg, #FF6B6B 0%, #E10A0A 100%); }
+  .gantt-bar.t2 { background: linear-gradient(90deg, #FF4D8A 0%, #FF1493 100%); }
+  .gantt-bar.t3 { background: linear-gradient(90deg, #A055D6 0%, #6A0DAD 100%); }
+  .gantt-bar.t4 { background: linear-gradient(90deg, #4D6FFF 0%, #0019A5 100%); }
+
+  .gantt-legend {
     display: flex;
-    flex-direction: column;
-    gap: 2px;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    font-size: 13px;
+    color: var(--ink-soft);
   }
-  .demo-cta-text {
+  .gantt-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+  }
+  .gantt-legend-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 100px;
+  }
+  .gantt-legend-dot.t1 { background: var(--vm-red); }
+  .gantt-legend-dot.t2 { background: var(--volt-magenta); }
+  .gantt-legend-dot.t3 { background: var(--volt-purple); }
+  .gantt-legend-dot.t4 { background: var(--ink); }
+
+  /* ====== ROADMAP GANTT SUB-SECTION ====== */
+  .roadmap-gantt-block {
+    margin-top: 0;
+  }
+  .roadmap-gantt-head {
+    margin-bottom: 32px;
+  }
+  .roadmap-gantt-head h3 {
     font-family: 'Sora', sans-serif;
-    font-size: 17px;
+    font-size: clamp(26px, 3vw, 36px);
     font-weight: 800;
     color: var(--ink);
     letter-spacing: -0.01em;
+    margin-bottom: 12px;
   }
-  .demo-cta-sub {
-    font-size: 12px;
-    color: var(--ink-mute);
-    font-weight: 500;
-  }
-  .demo-cta-arrow {
-    color: var(--vm-red);
-    display: flex;
-    align-items: center;
-    transition: transform 0.2s;
-  }
-  .demo-card:hover .demo-cta-arrow {
-    transform: translateX(6px);
+  .roadmap-gantt-head p {
+    font-size: 17px;
+    color: var(--ink-soft);
+    max-width: 720px;
+    line-height: 1.5;
   }
 
-  /* ===== FOOTER ===== */
-  footer {
-    background: #0F0F0F;
-    color: rgba(255,255,255,0.7);
-    padding: 40px 0;
-    font-size: 13px;
+  /* ====== SCATTER CHART (VALUE MAP) ====== */
+  .scatter-card {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    padding: 32px 32px 24px 88px;
+    margin-top: 48px;
+    position: relative;
   }
-  .footer-inner {
+  .scatter-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .scatter-head-title {
+    font-family: 'Sora', sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .scatter-head-sub {
+    font-size: 13px;
+    color: var(--ink-mute);
+    font-weight: 600;
+  }
+  .scatter-legend {
+    display: flex;
+    gap: 16px;
+  }
+  .scatter-legend-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink-soft);
+  }
+  .scatter-legend-item .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 100px;
+  }
+  .dot.vm-brand { background: var(--vm-red); }
+  .dot.o2-brand { background: var(--o2-blue); }
+
+  .scatter-wrap {
+    position: relative;
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    gap: 12px;
+    height: 420px;
+  }
+  .scatter-yaxis {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-size: 11px;
+    color: var(--ink-mute);
+    font-weight: 600;
+    padding: 6px 0;
+  }
+
+  .scatter-plot {
+    position: relative;
+    background: linear-gradient(180deg, #FAFAFA 0%, #FFFFFF 100%);
+    border-left: 2px solid var(--ink);
+    border-bottom: 2px solid var(--ink);
+    border-radius: 0;
+    overflow: visible;
+  }
+  .scatter-gridlines, .scatter-vlines {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    pointer-events: none;
+  }
+  .scatter-gridlines { flex-direction: column; justify-content: space-between; }
+  .scatter-vlines { flex-direction: row; }
+  .scatter-vlines .grid-v {
+    flex: 1;
+    border-right: 1px solid var(--line);
+    background: transparent;
+  }
+  .scatter-vlines .grid-v:last-child { border-right: none; }
+  .grid-h {
+    width: 100%;
+    height: 1px;
+    background: var(--line);
+  }
+  .grid-v {
+    height: 100%;
+  }
+
+  .bubble {
+    position: absolute;
+    border-radius: 100px;
+    transform: translate(-50%, 50%);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
+    opacity: 0;
+    animation: bubblePop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    border: 2px solid white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  @keyframes bubblePop {
+    from { opacity: 0; transform: translate(-50%, 50%) scale(0); }
+    to { opacity: 0.85; transform: translate(-50%, 50%) scale(1); }
+  }
+  .bubble:hover {
+    opacity: 1;
+    transform: translate(-50%, 50%) scale(1.15);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    z-index: 10;
+  }
+  .bubble.vm { background: radial-gradient(circle at 30% 30%, #FF6B6B 0%, #E10A0A 70%); }
+  .bubble.o2 { background: radial-gradient(circle at 30% 30%, #4D6FFF 0%, #0019A5 70%); }
+
+  .scatter-xaxis {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    margin-left: 62px;
+    margin-top: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--ink-soft);
+  }
+  .scatter-xaxis span {
+    text-align: center;
+  }
+
+  .scatter-yaxis-label {
+    position: absolute;
+    left: 22px;
+    top: 50%;
+    transform: rotate(-90deg) translateX(50%);
+    transform-origin: center;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+  }
+  .scatter-xaxis-label {
+    text-align: center;
+    margin-top: 16px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .scatter-tooltip {
+    position: absolute;
+    background: var(--ink);
+    color: white;
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-size: 13px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.15s;
+    z-index: 100;
+    white-space: nowrap;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    transform: translate(-50%, calc(-100% - 12px));
+  }
+  .scatter-tooltip.visible { opacity: 1; }
+  .scatter-tooltip strong {
+    display: block;
+    font-family: 'Sora', sans-serif;
+    font-weight: 800;
+    margin-bottom: 6px;
+    font-size: 14px;
+  }
+  .scatter-tooltip .row {
     display: flex;
     justify-content: space-between;
-    gap: 24px;
-    flex-wrap: wrap;
+    gap: 16px;
+    font-size: 12px;
+    opacity: 0.85;
+    line-height: 1.5;
   }
 
+  .scatter-insights {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 32px;
+  }
+  @media (max-width: 800px) { .scatter-insights { grid-template-columns: 1fr; } }
+  .insight {
+    background: var(--bg-soft);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 20px;
+  }
+  .insight-num {
+    font-family: 'Sora', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 1;
+    background: var(--gradient-volt);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 8px;
+  }
+  .insight-lbl {
+    font-size: 13px;
+    color: var(--ink-soft);
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  @media (max-width: 700px) {
+    .scatter-card { padding: 24px 16px 16px 60px; }
+    .scatter-yaxis-label { left: 8px; }
+  }
+
+  /* ====== COMPLIANCE & CONTROL ====== */
+  .compliance {
+    background: linear-gradient(160deg, #0F0F12 0%, #1A1A22 100%);
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+  .compliance::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle at 90% 10%, rgba(0,168,225,0.12) 0%, transparent 50%),
+                      radial-gradient(circle at 10% 90%, rgba(225,10,10,0.08) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .compliance .container { position: relative; z-index: 1; }
+  .compliance .section-eyebrow {
+    background: rgba(0,168,225,0.12);
+    color: var(--o2-cyan);
+  }
+  .compliance .section-title { color: white; }
+  .compliance .section-lead { color: rgba(255,255,255,0.7); }
+
+  .compliance-shield {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 18px;
+    background: rgba(46,196,182,0.12);
+    border: 1px solid rgba(46,196,182,0.3);
+    border-radius: 100px;
+    color: #2EC4B6;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 28px;
+    letter-spacing: 0.04em;
+  }
+
+  .compliance-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 48px;
+  }
+  @media (max-width: 1000px) { .compliance-grid { grid-template-columns: 1fr; } }
+
+  .compliance-card {
+    background: linear-gradient(160deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px;
+    padding: 32px;
+    transition: transform 0.3s, border-color 0.3s;
+  }
+  .compliance-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(0,168,225,0.4);
+  }
+  .compliance-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    display: grid;
+    place-items: center;
+    margin-bottom: 20px;
+    color: white;
+  }
+  .compliance-icon.controls { background: linear-gradient(135deg, #E10A0A 0%, #FF1493 100%); }
+  .compliance-icon.risk { background: linear-gradient(135deg, #FF8800 0%, #E10A0A 100%); }
+  .compliance-icon.audit { background: linear-gradient(135deg, #00A8E1 0%, #0019A5 100%); }
+
+  .compliance-card h3 {
+    font-size: 22px;
+    margin-bottom: 16px;
+    color: white;
+  }
+  .compliance-card ul {
+    list-style: none;
+  }
+  .compliance-card li {
+    padding: 10px 0;
+    color: rgba(255,255,255,0.85);
+    font-size: 15px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .compliance-card li:last-child { border-bottom: none; }
+  .compliance-card li::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 100px;
+    background: #2EC4B6;
+    flex-shrink: 0;
+    margin-top: 8px;
+  }
+
+  .compliance-keyline {
+    margin-top: 56px;
+    text-align: center;
+    padding: 36px;
+    background: linear-gradient(135deg, rgba(225,10,10,0.08) 0%, rgba(0,25,165,0.08) 100%);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 24px;
+  }
+  .compliance-keyline-label {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--o2-cyan);
+    margin-bottom: 14px;
+  }
+  .compliance-keyline-quote {
+    font-family: 'Sora', sans-serif;
+    font-size: clamp(24px, 3.5vw, 36px);
+    font-weight: 800;
+    color: white;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+  .compliance-keyline-quote em {
+    font-style: normal;
+    background: var(--gradient-volt);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* ====== REPORTING ====== */
+  .reporting {
+    background: var(--bg-soft);
+    color: var(--ink);
+  }
+  .reporting .section-eyebrow {
+    background: var(--gradient-volt-soft);
+    color: var(--vm-red);
+  }
+
+  .reporting-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+  @media (max-width: 1000px) { .reporting-grid { grid-template-columns: 1fr; } }
+
+  .report-card {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    position: relative;
+    transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+  }
+  .report-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--vm-red);
+    box-shadow: var(--shadow-soft);
+  }
+  .report-card.is-coming::after {
+    content: 'COMING SOON';
+    position: absolute;
+    top: 28px;
+    right: 28px;
+    padding: 6px 14px;
+    background: rgba(0,168,225,0.12);
+    border: 1px solid rgba(0,168,225,0.4);
+    border-radius: 100px;
+    color: var(--o2-blue);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+  }
+
+  .report-head {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .report-logo {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    display: grid;
+    place-items: center;
+    color: white;
+    font-family: 'Sora', sans-serif;
+    font-weight: 800;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+  .report-logo.ga4 { background: linear-gradient(135deg, #FF8800 0%, #FF6B00 100%); }
+  .report-logo.cw { background: linear-gradient(135deg, #FF9900 0%, #E47911 100%); }
+  .report-logo.tableau { background: linear-gradient(135deg, #1F77B4 0%, #2E5C8A 100%); }
+
+  .report-meta {
+    flex: 1;
+    min-width: 0;
+  }
+  .report-platform {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .report-name {
+    font-family: 'Sora', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.2;
+  }
+
+  .report-card hr {
+    border: none;
+    height: 1px;
+    background: var(--line);
+    margin: 0;
+  }
+
+  .report-headline {
+    font-family: 'Sora', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 1.15;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  .report-desc {
+    color: var(--ink-soft);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .report-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: auto;
+  }
+  .report-tag {
+    padding: 8px 16px;
+    background: var(--bg-soft);
+    border: 1px solid var(--line);
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink-soft);
+  }
+
+  .report-contact {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    background: var(--bg-soft);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+  }
+  .contact-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2EC4B6 0%, #1A9C8E 100%);
+    display: grid;
+    place-items: center;
+    color: white;
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    flex-shrink: 0;
+  }
+  .contact-info { min-width: 0; }
+  .contact-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 2px;
+  }
+  .contact-role {
+    font-size: 12px;
+    color: var(--ink-mute);
+  }
+
+  /* ====== CTA BANNER ====== */
+  .cta-banner {
+    background: var(--gradient-volt);
+    border-radius: 32px;
+    padding: 80px 60px;
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    margin: 80px auto;
+    max-width: 1200px;
+  }
+  .cta-banner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.15) 0%, transparent 40%),
+                      radial-gradient(circle at 70% 70%, rgba(255,255,255,0.1) 0%, transparent 40%);
+    pointer-events: none;
+  }
+  .cta-banner .hero-cta {
+    position: relative;
+    z-index: 2;
+  }
+  .cta-banner h2 {
+    font-size: clamp(32px, 4vw, 48px);
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+  }
+  .cta-banner p {
+    font-size: 18px;
+    opacity: 0.95;
+    margin-bottom: 32px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 1;
+  }
+  @media (max-width: 700px) { .cta-banner { padding: 60px 32px; border-radius: 24px; } }
+
+  /* ====== FOOTER ====== */
+  footer {
+    background: var(--ink);
+    color: rgba(255,255,255,0.7);
+    padding: 60px 0 32px;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 48px;
+  }
+  @media (max-width: 800px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+  .footer-brand p { font-size: 14px; max-width: 320px; margin-top: 16px; }
+  .footer-col h4 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: white;
+    margin-bottom: 16px;
+    font-weight: 700;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col li { margin-bottom: 10px; }
+  .footer-col a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s;
+  }
+  .footer-col a:hover { color: white; }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 24px;
+    font-size: 13px;
+    text-align: center;
+  }
+
+  /* ====== UTILITY ====== */
   @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
+    from { opacity: 0; transform: translateY(24px); }
     to { opacity: 1; transform: translateY(0); }
   }
   .reveal { animation: fadeUp 0.7s ease-out both; }
@@ -999,17 +2623,21 @@
           <path d="M40 18 Q 30 28 30 40 L 40 40 Z" fill="#0033CC"/>
         </svg>
       </span>
-      <span>Sierra <strong style="color: var(--vm-red-deep);">AI</strong></span>
+      <span>Digital <strong style="color: var(--vm-red);">Agentic Strategy</strong></span>
     </a>
     <ul class="nav-links">
-      <li><a href="#approach">Approach</a></li>
-      <li><a href="#timeline">Timeline</a></li>
-      <li><a href="#benefits">OPEX</a></li>
-      <li><a href="#risks">Risks</a></li>
+      <li><a href="#principles">Principles</a></li>
+      <li><a href="#opex">OPEX</a></li>
+      <li><a href="#alignment">Alignment</a></li>
+      <li><a href="#build-objective">Build</a></li>
+      <li><a href="#tiers">Intent Roadmap</a></li>
       <li><a href="#delivery">Delivery</a></li>
-      <li><a href="#demo">Demo</a></li>
+      <li><a href="#roadmap">Roadmap</a></li>
+      <li><a href="#value-map">Value Map</a></li>
+      <li><a href="#compliance">Compliance</a></li>
+      <li><a href="#metrics">Metrics</a></li>
+      <li><a href="#reporting">Reporting</a></li>
     </ul>
-    <span class="nav-audience">Digital Focus</span>
   </div>
 </nav>
 
@@ -1018,440 +2646,1582 @@
   <div class="container">
     <div class="hero-grid">
       <div class="reveal">
-        <span class="hero-eyebrow">Programme Summary</span>
-        <h1>Sierra AI - a route to <em>Generative UI.</em></h1>
-        <p class="hero-sub">Using Sierra AI to deliver the generative UI experience through a controlled three-step process. Migrate voice agents into messaging, introduce approved dynamic components, then adopt Generative UI where the evidence supports it.</p>
-        <a href="#approach" class="hero-cta">The approach -></a>
-        <a href="#timeline" class="hero-cta-ghost">See the demo</a>
+        <span class="hero-eyebrow">⚡ Gemini Enterprise for CX</span>
+        <h1>VMO2 Digital <em>Agentic</em> Strategy</h1>
+        <p class="hero-sub">Introducing agentic experiences to increase the velocity to resolution, improve customer trust and decrease OPEX spend by £34m.</p>
+        <a href="#opex" class="hero-cta">Financial Impact →</a>
+        <a href="#operating-model" class="hero-cta-ghost">How we deliver</a>
       </div>
 
+      <!-- Hero Illustration -->
       <div class="hero-illo reveal delay-2">
         <svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <linearGradient id="arcGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#FF4D4D"/>
-              <stop offset="60%" stop-color="#E10A0A"/>
-              <stop offset="100%" stop-color="#B30000"/>
+            <linearGradient id="boltGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#E10A0A"/>
+              <stop offset="50%" stop-color="#FF1493"/>
+              <stop offset="100%" stop-color="#0019A5"/>
             </linearGradient>
-            <radialGradient id="haloGrad" cx="50%" cy="50%">
-              <stop offset="0%" stop-color="#E10A0A" stop-opacity="0.15"/>
-              <stop offset="100%" stop-color="#B30000" stop-opacity="0"/>
+            <radialGradient id="orbGrad" cx="50%" cy="50%">
+              <stop offset="0%" stop-color="#FF1493" stop-opacity="0.15"/>
+              <stop offset="100%" stop-color="#0019A5" stop-opacity="0"/>
             </radialGradient>
           </defs>
-          <circle cx="240" cy="240" r="230" fill="url(#haloGrad)"/>
-          <g class="illo-ring-outer">
-            <circle cx="240" cy="240" r="200" fill="none" stroke="url(#arcGrad)" stroke-width="4" stroke-dasharray="4 10" opacity="0.7"/>
+
+          <!-- background orbs -->
+          <circle cx="240" cy="240" r="220" fill="url(#orbGrad)"/>
+
+          <!-- rotating ring -->
+          <g class="illo-ring">
+            <circle cx="240" cy="240" r="180" fill="none" stroke="rgba(225,10,10,0.25)" stroke-width="2" stroke-dasharray="8 12"/>
+            <circle cx="240" cy="60" r="8" fill="#E10A0A"/>
+            <circle cx="420" cy="240" r="6" fill="#0019A5"/>
+            <circle cx="240" cy="420" r="6" fill="#0019A5"/>
+            <circle cx="60" cy="240" r="8" fill="#E10A0A"/>
           </g>
-          <g class="illo-ring-mid">
-            <circle cx="240" cy="240" r="150" fill="none" stroke="#4A148C" stroke-width="3" stroke-dasharray="8 6" opacity="0.6"/>
+
+          <!-- inner ring -->
+          <g class="illo-ring" style="animation-direction: reverse; animation-duration: 18s;">
+            <circle cx="240" cy="240" r="130" fill="none" stroke="rgba(0,25,165,0.3)" stroke-width="2"/>
           </g>
-          <circle cx="240" cy="240" r="100" fill="none" stroke="#E10A0A" stroke-width="3" opacity="0.9"/>
-          <g class="illo-phase-marker">
-            <circle cx="240" cy="140" r="12" fill="#E10A0A" stroke="white" stroke-width="3"/>
-            <text x="240" y="145" text-anchor="middle" fill="white" font-family="Sora, sans-serif" font-size="12" font-weight="800">1</text>
-            <circle cx="390" cy="240" r="12" fill="#6A0DAD" stroke="white" stroke-width="3"/>
-            <text x="390" y="245" text-anchor="middle" fill="white" font-family="Sora, sans-serif" font-size="12" font-weight="800">2</text>
-            <circle cx="100" cy="340" r="12" fill="#E10A0A" stroke="white" stroke-width="3"/>
-            <text x="100" y="345" text-anchor="middle" fill="white" font-family="Sora, sans-serif" font-size="12" font-weight="800">3</text>
+
+          <!-- floating orb behind bolt -->
+          <g class="illo-orb">
+            <circle cx="240" cy="240" r="100" fill="rgba(255,20,147,0.08)"/>
+            <circle cx="240" cy="240" r="80" fill="rgba(225,10,10,0.06)"/>
           </g>
-          <g class="illo-core">
-            <circle cx="240" cy="240" r="52" fill="white" stroke="#E10A0A" stroke-width="3"/>
-            <circle cx="240" cy="240" r="34" fill="#E10A0A"/>
-            <path d="M 224 240 L 236 250 L 258 228" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+          <!-- lightning bolt -->
+          <g class="illo-bolt">
+            <path d="M 260 130 L 200 250 L 240 250 L 220 350 L 290 220 L 250 220 L 280 130 Z"
+                  fill="url(#boltGrad)" stroke="white" stroke-width="3" stroke-linejoin="round"/>
           </g>
+
+          <!-- sparks -->
+          <circle cx="120" cy="120" r="6" fill="#E10A0A"/>
+          <circle cx="380" cy="140" r="4" fill="#0019A5"/>
+          <circle cx="100" cy="360" r="5" fill="#FF1493"/>
+          <circle cx="380" cy="380" r="6" fill="#0019A5"/>
         </svg>
       </div>
     </div>
 
+    <!-- Hero stats -->
     <div class="hero-stats">
       <div class="reveal delay-1">
-        <div class="stat-num">3</div>
-        <div class="stat-label">Steps from text agent to Generative UI</div>
+        <div class="stat-num">3.1m</div>
+        <div class="stat-label">Contained interactions in 2027</div>
       </div>
       <div class="reveal delay-2">
-        <div class="stat-num">12</div>
-        <div class="stat-label">Agents in the delivery timeline</div>
+        <div class="stat-num">6.5m</div>
+        <div class="stat-label">Contained interactions in 2028</div>
       </div>
       <div class="reveal delay-3">
-        <div class="stat-num">17</div>
-        <div class="stat-label">Months from first build to full estate</div>
+        <div class="stat-num">£34m</div>
+        <div class="stat-label">OPEX avoidance by end of 2028</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== THREE-STEP APPROACH ===== -->
-<section class="approach-bg" id="approach">
+<!-- ===== PRINCIPLES ===== -->
+<section class="principles" id="principles">
   <div class="container">
-    <span class="section-eyebrow">The Approach</span>
-    <h2 class="section-title">Three steps to Generative UI.</h2>
-    <p class="section-lead">A controlled path from proven voice capability to adaptive interfaces. Each step earns the next.</p>
+    <span class="section-eyebrow">Strategic Principles</span>
+    <h2 class="section-title">Four ways we get to green.</h2>
+    <p class="section-lead">Every agent we onboard follows the same playbook - built for volume, designed to act, and governed by readiness.</p>
 
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">STEP 01</div>
-        <h3>Sierra text agentic agents</h3>
-        <p>Migrate proven voice agents into messaging through digital entry points. Establish that customers can complete high-value journeys through text before adding visual complexity.</p>
-        <span class="step-tag">Foundation</span>
-      </div>
-
-      <div class="step">
-        <div class="step-num">STEP 02</div>
-        <h3>Deterministic dynamic UI</h3>
-        <p>Introduce approved, predefined interface components at controlled points in the journey. Prove the incremental value of visual and interactive elements against the text baseline.</p>
-        <span class="step-tag">Controlled</span>
-      </div>
-
-      <div class="step">
-        <div class="step-num">STEP 03</div>
-        <h3>Non-deterministic Generative UI</h3>
-        <p>Enable dynamically composed interfaces through Sierra and GECX - only when the evidence, governance and controls from steps one and two support it.</p>
-        <span class="step-tag">Adaptive</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<hr class="divider">
-
-<!-- ===== POC DELIVERY TIMELINE ===== -->
-<section id="timeline">
-  <div class="container">
-    <span class="section-eyebrow">Delivery Timeline</span>
-    <h2 class="section-title">When each agent goes live.</h2>
-    <p class="section-lead">Delivery milestones for the agents currently in build, plus the next wave in planning.</p>
-
-    <div class="poc-timeline">
-      <div class="poc-inner">
-
-        <!-- Column headers: 7 months, Sep - Mar -->
-        <div class="poc-head">
-          <div class="poc-head-cell">Intent</div>
-          <div class="poc-head-cell">Sep</div>
-          <div class="poc-head-cell">Oct</div>
-          <div class="poc-head-cell">Nov</div>
-          <div class="poc-head-cell">Dec</div>
-          <div class="poc-head-cell">Jan</div>
-          <div class="poc-head-cell">Feb</div>
-          <div class="poc-head-cell">Mar</div>
-        </div>
-
-        <!-- Broadband Faults: solid bar 22 Sep - 22 Dec (extended end) -->
-        <div class="poc-row">
-          <div class="poc-label">Broadband Faults</div>
-          <div class="poc-track">
-            <div class="poc-cell"></div><div class="poc-cell"></div><div class="poc-cell"></div><div class="poc-cell"></div><div class="poc-cell"></div><div class="poc-cell"></div><div class="poc-cell"></div>
-            <div class="poc-diamond" style="left: 2.38%;"></div>
-            <div class="poc-bar" style="left: 10.48%; width: 42.52%;"></div>
-            <div class="poc-milestone" style="left: 10.48%;"><span class="pct">20%</span><span class="date">22 Sep</span></div>
-            <div class="poc-milestone" style="left: 23.50%;"><span class="pct">50%</span><span class="date">20 Oct</span></div>
-            <div class="poc-milestone" style="left: 36.67%;"><span class="pct">75%</span><span class="date">17 Nov</span></div>
-            <div class="poc-milestone" style="left: 53.00%;"><span class="pct">100%</span><span class="date">22 Dec</span></div>
-          </div>
-        </div>
-
-        <!-- Appointments: First 50 pilot at 2 Nov (achieved), main rollout Jan-Feb 2027 -->
-        <div class="poc-row">
-          <div class="poc-label">Appointments</div>
-          <div class="poc-track">
-            <div class="poc-cell"></div><div class="poc-cell"></div><div class="poc-cell"></div><div class="poc-cell"></div><div class="poc-cell"></div><div class="poc-cell"></div><div class="poc-cell"></div>
-            <div class="poc-diamond" style="left: 29.52%;"></div>
-            <div class="poc-milestone first-50" style="left: 29.52%;"><span class="pct">First 50</span><span class="date">2 Nov</span></div>
-            <div class="poc-bar" style="left: 62.67%; width: 20.49%;"></div>
-            <div class="poc-milestone" style="left: 62.67%;"><span class="pct">20%</span><span class="date">12 Jan</span></div>
-            <div class="poc-milestone" style="left: 69.12%;"><span class="pct">50%</span><span class="date">26 Jan</span></div>
-            <div class="poc-milestone" style="left: 76.02%;"><span class="pct">75%</span><span class="date">9 Feb</span></div>
-            <div class="poc-milestone" style="left: 83.16%;"><span class="pct">100%</span><span class="date">23 Feb</span></div>
-          </div>
-        </div>
-
-        <!-- TV Faults: First 50 at 14 Dec, dashed bar 29 Jan - 15 Mar (planned rollout) -->
-        <div class="poc-row">
-          <div class="poc-label">TV Faults</div>
-          <div class="poc-track">
-            <div class="poc-cell"></div><div class="poc-cell"></div><div class="poc-cell"></div><div class="poc-cell"></div><div class="poc-cell"></div><div class="poc-cell"></div><div class="poc-cell"></div>
-            <div class="poc-diamond" style="left: 49.31%;"></div>
-            <div class="poc-milestone first-50" style="left: 49.31%;"><span class="pct">First 50</span><span class="date">14 Dec</span></div>
-            <div class="poc-bar dashed" style="left: 70.51%; width: 22.12%;"></div>
-            <div class="poc-milestone" style="left: 70.51%;"><span class="pct">20%</span><span class="date">29 Jan</span></div>
-            <div class="poc-milestone" style="left: 79.08%;"><span class="pct">50%</span><span class="date">15 Feb</span></div>
-            <div class="poc-milestone" style="left: 86.18%;"><span class="pct">75%</span><span class="date">1 Mar</span></div>
-            <div class="poc-milestone" style="left: 92.63%;"><span class="pct">100%</span><span class="date">15 Mar</span></div>
-          </div>
-        </div>
-
-        <!-- Package Change: In planning -->
-        <div class="poc-row planning">
-          <div class="poc-label">Package Change</div>
-          <div class="poc-track">
-            <span class="poc-planning-text">In planning</span>
-          </div>
-        </div>
-
-        <!-- Billing Bill Query: In planning -->
-        <div class="poc-row planning">
-          <div class="poc-label">Billing Bill Query</div>
-          <div class="poc-track">
-            <span class="poc-planning-text">In planning</span>
-          </div>
-        </div>
-
-        <!-- GECX: Decision to be made (escalated status) -->
-        <div class="poc-row decision">
-          <div class="poc-label">GECX</div>
-          <div class="poc-track">
-            <span class="poc-planning-text">Decision to be made</span>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="poc-legend">
-        <div class="poc-legend-item">
-          <span class="poc-legend-swatch"></span>
-          Active build
-        </div>
-        <div class="poc-legend-item">
-          <span class="poc-legend-swatch dashed"></span>
-          Planned rollout
-        </div>
-        <div class="poc-legend-item">
-          <span class="poc-legend-swatch diamond"></span>
-          Milestone / First 50
-        </div>
-        <div class="poc-legend-note">Each bar spans the build-to-live window with 20 / 50 / 75 / 100% milestone dates.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<hr class="divider">
-
-<!-- ===== OPEX AVOIDANCE ===== -->
-<section class="opex" id="benefits">
-  <div class="container">
-    <span class="section-eyebrow">OPEX Avoidance</span>
-    <h2 class="section-title"><em>£881k</em> of the digital £5.5m target - from three intents.</h2>
-    <p class="section-lead">Digital OPEX avoidance target for end of 2027: £5.5m. Three intents currently in build deliver the first £881k.</p>
-
-    <div class="opex-headline">
-      <div class="opex-headline-num"><em>£5.5m</em></div>
-      <div class="opex-headline-text">
-        <strong>Digital OPEX avoidance target - end of 2027</strong>
-        These three intents contribute £881k against that target. The remaining £4.6m comes from the in-planning intents (Package Change, Billing Bill Query, GECX).
-      </div>
-    </div>
-
-    <div class="opex-grid">
-
-      <div class="opex-card">
-        <div class="opex-card-name">Broadband Faults</div>
-        <div class="opex-figure">£583k</div>
-        <div class="opex-caption">OPEX avoidance</div>
-        <div class="opex-containment">
-          <span class="opex-containment-pct">40%</span>
-          <span class="opex-containment-label">Containment target</span>
-        </div>
-      </div>
-
-      <div class="opex-card">
-        <div class="opex-card-name">Appointments</div>
-        <div class="opex-figure">£190k</div>
-        <div class="opex-caption">OPEX avoidance</div>
-        <div class="opex-containment">
-          <span class="opex-containment-pct">55%</span>
-          <span class="opex-containment-label">Containment target</span>
-        </div>
-      </div>
-
-      <div class="opex-card">
-        <div class="opex-card-name">TV Faults</div>
-        <div class="opex-figure">£108k</div>
-        <div class="opex-caption">OPEX avoidance</div>
-        <div class="opex-containment">
-          <span class="opex-containment-pct">40%</span>
-          <span class="opex-containment-label">Containment target</span>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-
-<hr class="divider">
-
-<!-- ===== RISKS & DEPENDENCIES ===== -->
-<section id="risks">
-  <div class="container">
-    <span class="section-eyebrow">Risks & Dependencies</span>
-    <h2 class="section-title">Two dependencies to actively manage.</h2>
-    <p class="section-lead">Both risks sit outside the CCAI team's direct control. The delivery model above is designed to reduce exposure to the first; the second requires close coordination with the DPPA team.</p>
-
-    <div class="risks-frame">
-
-      <div class="risk-card">
-        <div class="risk-tag">Risk 01 - Resource</div>
-        <h3>Competition for TCS engineering resource</h3>
-        <p>TCS engineering capacity is shared across multiple concurrent programmes. Contention could slow backend integration and governance sign-off for the Sierra AI build.</p>
-        <div class="mitigation">
-          <strong>Mitigation</strong>
-          The CCAI internal delivery model reduces exposure by owning discovery, front-end prototyping and design influence in-house - leaving TCS to focus only on standard backend API integration and governance.
-        </div>
-      </div>
-
-      <div class="risk-card">
-        <div class="risk-tag">Risk 02 - Dependency</div>
-        <h3>Delivery of the voice agentic agents by the DPPA team</h3>
-        <p>The programme depends on the voice agents being built by the DPPA team. Sierra's messaging agents extend those voice capabilities, so any slippage in voice delivery will directly impact the timeline above.</p>
-        <div class="mitigation">
-          <strong>Mitigation</strong>
-          Close coordination with the DPPA team, aligned delivery milestones, and early visibility of voice agent readiness feeding into the sequencing shown in the delivery timeline.
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<hr class="divider">
-
-<!-- ===== DELIVERY APPROACH ===== -->
-<section class="delivery-bg" id="delivery">
-  <div class="container">
-    <span class="section-eyebrow">Delivery Approach</span>
-    <h2 class="section-title">An internal delivery model that reduces TCS dependency.</h2>
-    <p class="section-lead">The primary delivery risk is competition for engineering resources within TCS and the delivery of the voice agentic agents. To reduce this dependency, the CCAI team has developed an internal delivery model.</p>
-
-    <div class="responsibilities">
-
-      <div class="resp-card resp-ccai">
-        <div class="resp-banner">
-          <div class="resp-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M17 21 v-2 a4 4 0 0 0 -4 -4 H5 a4 4 0 0 0 -4 4 v2"/>
-              <circle cx="9" cy="7" r="4"/>
-              <path d="M23 21 v-2 a4 4 0 0 0 -3 -3.87"/>
-              <path d="M16 3.13 a4 4 0 0 1 0 7.75"/>
-            </svg>
-          </div>
-          <div>
-            <div class="resp-title">CCAI Responsibilities</div>
-            <div class="resp-sub">Internal delivery model</div>
-          </div>
-        </div>
-        <ul class="resp-list">
-          <li>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="9"/>
-              <path d="M8 12 L11 15 L16 9"/>
-            </svg>
-            Discovery
-          </li>
-          <li>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="9"/>
-              <path d="M8 12 L11 15 L16 9"/>
-            </svg>
-            Influence and support end-to-end solution design
-          </li>
-          <li>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="9"/>
-              <path d="M8 12 L11 15 L16 9"/>
-            </svg>
-            User interface prototyping and front-end development
-          </li>
-        </ul>
-      </div>
-
-      <div class="resp-card resp-tcs">
-        <div class="resp-banner">
-          <div class="resp-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="4" width="18" height="16" rx="2"/>
-              <path d="M8 2 v4"/>
-              <path d="M16 2 v4"/>
-              <path d="M3 10 h18"/>
-            </svg>
-          </div>
-          <div>
-            <div class="resp-title">TCS Responsibilities</div>
-            <div class="resp-sub">Backend and governance</div>
-          </div>
-        </div>
-        <ul class="resp-list">
-          <li>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="9"/>
-              <path d="M8 12 L11 15 L16 9"/>
-            </svg>
-            Solution design
-          </li>
-          <li>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="9"/>
-              <path d="M8 12 L11 15 L16 9"/>
-            </svg>
-            Standard backend API integration
-          </li>
-          <li>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="9"/>
-              <path d="M8 12 L11 15 L16 9"/>
-            </svg>
-            Governance sign-off
-          </li>
-        </ul>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<hr class="divider">
-
-<!-- ===== VIDEO DEMO ===== -->
-<section id="demo">
-  <div class="container">
-    <span class="section-eyebrow">Demo</span>
-    <h2 class="section-title">See Sierra AI in action.</h2>
-    <p class="section-lead">A short walkthrough of the messaging agent handling a real customer journey - from digital entry point through to resolution.</p>
-
-    <a href="https://vimeo.com/1229481743" target="_blank" rel="noopener" class="demo-card">
-      <div class="demo-preview">
-        <div class="demo-label"><span class="live-dot"></span>Sierra AI - POC Walkthrough</div>
-        <div class="demo-source">Vimeo</div>
-        <div class="demo-play-btn">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M6 4 L20 12 L6 20 Z"/>
+    <div class="principle-grid">
+      <div class="principle">
+        <div class="principle-icon">
+          <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+            <path d="M30 10 L48 28 L38 28 L38 50 L22 50 L22 28 L12 28 Z" fill="#E10A0A"/>
           </svg>
         </div>
+        <h3>Intelligence-First Prioritisation</h3>
+        <p>Focus on intents with the (current) capability to resolve and contain.</p>
       </div>
-      <div class="demo-cta-row">
-        <div class="demo-cta-left">
-          <span class="demo-cta-text">See the demo</span>
-          <span class="demo-cta-sub">Opens on Vimeo in a new tab</span>
-        </div>
-        <span class="demo-cta-arrow">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="5" y1="12" x2="19" y2="12"/>
-            <polyline points="12 5 19 12 12 19"/>
+
+      <div class="principle">
+        <div class="principle-icon">
+          <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+            <circle cx="30" cy="30" r="20" fill="#FF1493"/>
+            <path d="M22 30 L28 36 L40 22" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
           </svg>
+        </div>
+        <h3>Customer-Centric Optimisation</h3>
+        <p>Reverse engineer solutions from the point of resolution by design.</p>
+      </div>
+
+      <div class="principle">
+        <div class="principle-icon">
+          <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+            <rect x="10" y="22" width="14" height="22" rx="3" fill="#0019A5"/>
+            <rect x="36" y="14" width="14" height="30" rx="3" fill="#00A8E1"/>
+            <path d="M17 18 L17 12 M43 10 L43 6" stroke="#0019A5" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>Prospect & Customer Personalisation</h3>
+        <p>Use segment data to proactively present personalised experiences</p>
+      </div>
+
+      <div class="principle">
+        <div class="principle-icon">
+          <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+            <path d="M30 8 L52 20 L52 36 C52 46 42 52 30 54 C18 52 8 46 8 36 L8 20 Z" fill="#FFD700" stroke="#E10A0A" stroke-width="3"/>
+            <path d="M22 30 L28 36 L40 24" stroke="#E10A0A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+        </div>
+        <h3>Cross-Channel Consistency</h3>
+        <p>Consistent tone, design, & flow across brands & channels</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ===== OPEX OPTIMISATION ===== -->
+<section class="opex" id="opex">
+  <div class="container">
+    <span class="section-eyebrow">Financial Impact</span>
+    <h2 class="section-title">OPEX Optimisation.</h2>
+    <p class="section-lead">ROI will scale with the positive impact on the customer experience.</p>
+
+    <div class="opex-wrap">
+      <!-- Left: total summary -->
+      <div class="opex-summary">
+        <div class="opex-total">
+          <div class="opex-total-label">Total OPEX Avoidance</div>
+          <div class="opex-total-value">£34m</div>
+          <div class="opex-total-sub">Cumulative savings by end of 2028 - scaling each half as more intents go live.</div>
+        </div>
+        <div class="opex-callouts">
+          <div class="opex-callout">
+            <div class="opex-callout-num">£12m</div>
+            <div class="opex-callout-lbl">2027 Total</div>
+          </div>
+          <div class="opex-callout">
+            <div class="opex-callout-num">£22m</div>
+            <div class="opex-callout-lbl">2028 Total</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: bar chart -->
+      <div class="opex-chart">
+        <div class="opex-chart-title">
+          <span>OPEX Savings by Half</span>
+          <span>£ millions</span>
+        </div>
+
+        <div class="bars" id="opex-bars">
+          <div class="bar-col">
+            <div class="bar-value">£5m</div>
+            <div class="bar bar-1" data-target="38.5"></div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-value">£7m</div>
+            <div class="bar bar-2" data-target="53.8"></div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-value">£9m</div>
+            <div class="bar bar-3" data-target="69.2"></div>
+          </div>
+          <div class="bar-col">
+            <div class="bar-value">£13m</div>
+            <div class="bar bar-4" data-target="100"></div>
+          </div>
+        </div>
+
+        <div class="bar-labels">
+          <div class="bar-label">H1 2027</div>
+          <div class="bar-label">H2 2027</div>
+          <div class="bar-label">H1 2028</div>
+          <div class="bar-label">H2 2028</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ===== VOICE & DIGITAL ALIGNMENT ===== -->
+<section class="alignment" id="alignment">
+  <div class="container">
+    <span class="section-eyebrow">Build Alignment</span>
+    <h2 class="section-title">Data & Digital, building together.</h2>
+    <p class="section-lead">Two parallel tracks. Data products build the foundation of the agentic agents. Digital builds the  Generative UI interface.</p>
+
+    <div class="alignment-grid">
+
+      <!-- ===== VOICE ===== -->
+      <div class="team-card team-voice">
+        <div class="team-head">
+          <div class="team-icon voice">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2 a3 3 0 0 0 -3 3 v6 a3 3 0 0 0 6 0 V5 a3 3 0 0 0 -3 -3 Z"/>
+              <path d="M19 10 v1 a7 7 0 0 1 -14 0 v-1"/>
+              <line x1="12" y1="18" x2="12" y2="22"/>
+              <line x1="8" y1="22" x2="16" y2="22"/>
+            </svg>
+          </div>
+          <div class="team-meta">
+            <div class="label"></div>
+            <div class="name">Data</div>
+          </div>
+        </div>
+        <div class="headline">The foundation of the agentic agents.</div>
+        <div class="body">Data products build the underlying agent reasoning, intent detection, and conversation flows that power every interaction across the estate.</div>
+        <div class="team-pills">
+          <span class="team-pill">IVR</span>
+          <span class="team-pill">AWS</span>
+          <span class="team-pill">Sierra</span>
+          <span class="team-pill">Agent Foundation</span>
+        </div>
+      </div>
+
+      <!-- Connector between cards -->
+      <div class="alignment-connector">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12 H19"/>
+          <path d="M13 6 L19 12 L13 18"/>
+          <path d="M19 12 H5"/>
+          <path d="M11 6 L5 12 L11 18"/>
+        </svg>
+      </div>
+
+      <!-- ===== DIGITAL ===== -->
+      <div class="team-card team-digital">
+        <div class="team-head">
+          <div class="team-icon digital">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="13" rx="2"/>
+              <line x1="8" y1="21" x2="16" y2="21"/>
+              <line x1="12" y1="17" x2="12" y2="21"/>
+              <circle cx="9" cy="10" r="1.5" fill="currentColor" stroke="none"/>
+              <line x1="13" y1="9" x2="18" y2="9"/>
+              <line x1="13" y1="12" x2="17" y2="12"/>
+            </svg>
+          </div>
+          <div class="team-meta">
+            <div class="label"></div>
+            <div class="name">Digital</div>
+          </div>
+        </div>
+        <div class="headline">Generative UI Builds</div>
+        <div class="body">Digital build GenUI wrappers where the interface itself becomes an active participant in the agent's reasoning. Including deployment of Vertex AI.</div>
+        <div class="team-pills">
+          <span class="team-pill">Web · App · Messaging</span>
+          <span class="team-pill">Generative UI</span>
+          <span class="team-pill">Multimodal</span>
+          <span class="team-pill">Vertex AI</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Workflow / Synergy diagram -->
+    <div class="workflow">
+      <div class="workflow-header">
+        <span class="workflow-label">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2 L4 14 L11 14 L9 22 L20 10 L13 10 Z"/></svg>
+          Workflow Synergy
         </span>
+        <span class="workflow-title">Two tracks. <em>One agent experience.</em></span>
       </div>
-    </a>
+
+      <div class="synergy">
+
+        <!-- Voice track -->
+        <div class="synergy-track voice">
+          <div class="synergy-track-head">
+            <span class="synergy-pill voice">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="white"><path d="M12 14 c1.66 0 3 -1.34 3 -3 V5 c0 -1.66 -1.34 -3 -3 -3 S9 3.34 9 5 v6 c0 1.66 1.34 3 3 3 Z M17 11 c0 2.76 -2.24 5 -5 5 s-5 -2.24 -5 -5 H5 c0 3.53 2.61 6.43 6 6.92 V21 h2 v-3.08 c3.39 -0.49 6 -3.39 6 -6.92 H17 Z"/></svg>
+              Voice
+            </span>
+            <span class="synergy-stage-label">Agent foundation</span>
+          </div>
+          <div class="synergy-steps">
+            <div class="synergy-step"><span class="dot"></span>Intent &amp; reasoning model</div>
+            <div class="synergy-step"><span class="dot"></span>Backend API actions</div>
+          </div>
+        </div>
+
+        <!-- Convergence hub -->
+        <div class="synergy-hub">
+          <div class="synergy-core">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2 v4"/>
+              <path d="M12 18 v4"/>
+              <path d="M2 12 h4"/>
+              <path d="M18 12 h4"/>
+              <circle cx="12" cy="12" r="5" fill="currentColor" stroke="none" opacity="0.9"/>
+              <circle cx="12" cy="12" r="2.5" fill="white" stroke="none"/>
+            </svg>
+          </div>
+          <div class="synergy-hub-label">Unified<br>Intelligence</div>
+        </div>
+
+        <!-- Digital track -->
+        <div class="synergy-track digital">
+          <div class="synergy-track-head">
+            <span class="synergy-pill digital">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="white"><rect x="3" y="4" width="18" height="13" rx="2"/><rect x="8" y="20" width="8" height="1.5" rx="0.75"/><rect x="11" y="17" width="2" height="3"/></svg>
+              Digital
+            </span>
+            <span class="synergy-stage-label">Generative UI layer</span>
+          </div>
+          <div class="synergy-steps">
+            <div class="synergy-step"><span class="dot"></span>GenUI wrapper &amp; rendering</div>
+            <div class="synergy-step"><span class="dot"></span>Multimodal experience</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Joint outcome -->
+      <div class="synergy-outcome">
+        <div class="icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="9"/>
+            <path d="M8 12 L11 15 L16 9"/>
+          </svg>
+        </div>
+        <div class="text">Both tracks converge into <strong>unified intelligence</strong> - consistent reasoning, consistent actions, every channel.</div>
+      </div>
+
+    </div>
+
+    <!-- Special project callout -->
+    <div class="special-project">
+      <span class="sp-badge">★ Gen UI MVP</span>
+      <div class="sp-text">
+        <strong>Upgrades, from the ground up.</strong> The Digital team is building a single agent for upgrades end-to-end - collaborating directly with Google to understand and unpack the complexities of agentic delivery.
+      </div>
+      <span class="sp-google">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 L14.39 8.26 L21 9.27 L16 14.14 L17.18 20.74 L12 17.77 L6.82 20.74 L8 14.14 L3 9.27 L9.61 8.26 Z"/></svg>
+        With Google
+      </span>
+    </div>
+
+    <p class="section-lead" style="margin-top: 32px; margin-bottom: 0; font-size: 16px;">Objective: multimodal, multi-channel consistency. One brain. Every touchpoint.</p>
+
   </div>
 </section>
+
+<hr class="divider">
+
+<!-- ===== BUILD OBJECTIVE (VIDEO) ===== -->
+<section class="build-objective" id="build-objective">
+  <div class="container">
+    <span class="section-eyebrow">Build Objective</span>
+    <h2 class="section-title">What we're building, in motion.</h2>
+    <p class="section-lead">A first look at the agentic experience we're building together - voice intent powering a generative UI, with the interface adapting to the customer's reasoning in real time.</p>
+
+    <div class="bo-grid">
+      <!-- Video on the left -->
+      <div class="bo-video">
+        <span class="bo-video-badge"><span class="live-dot"></span>POC · V1</span>
+        <video controls preload="metadata" playsinline>
+          <source src="GECX_POC_V1.mp4" type="video/mp4">
+          Your browser doesn't support inline video. <a href="GECX_POC_V1.mp4" style="color:#FF1493;">Download the POC video</a>.
+        </video>
+      </div>
+
+      <!-- Build objective copy on the right -->
+      <div class="bo-content">
+        <h3>From static screens to <em>generative experiences.</em></h3>
+        <p>The POC demonstrates how a single agentic interaction can drive the full customer journey - intent captured by voice, surfaced through a Generative UI that builds itself around the customer's need. No menus. No hand-offs. Just one fluid experience.</p>
+
+        <div class="bo-pillars">
+          <div class="bo-pillar">
+            <div class="bo-pillar-icon p2">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="14" rx="2"/>
+                <path d="M8 9 L11 12 L8 15"/>
+                <line x1="13" y1="15" x2="16" y2="15"/>
+              </svg>
+            </div>
+            <div class="bo-pillar-text">
+              <div class="pt">Generative UI</div>
+              <div class="ps">The interface assembles itself in real time - driven by the agent's reasoning, not a static template.</div>
+            </div>
+          </div>
+
+          <div class="bo-pillar">
+            <div class="bo-pillar-icon p3">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M13 2 L4 14 L11 14 L9 22 L20 10 L13 10 Z"/>
+              </svg>
+            </div>
+            <div class="bo-pillar-text">
+              <div class="pt">Velocity to resolution</div>
+              <div class="ps">Fewer clicks, fewer dead-ends, faster outcomes. The interface gets out of the customer's way.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ===== OPERATING MODEL ===== -->
+<section id="operating-model">
+  <div class="container">
+    <span class="section-eyebrow">Digital Operating Model</span>
+    <h2 class="section-title">Two aligned squads. One goal.</h2>
+    <div class="om-lead-line">
+      <div class="om-lead-text">Squad one is led by Google to set the design patterns, with a fast-follower squad to accelerate delivery.</div>
+    </div>
+
+    <div class="squads">
+
+      <!-- ====== SQUAD 1 ====== -->
+      <div class="squad squad-1">
+        <div class="squad-banner">
+          <div class="squad-banner-left">
+            <div class="squad-banner-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2 L14.39 8.26 L21 9.27 L16 14.14 L17.18 20.74 L12 17.77 L6.82 20.74 L8 14.14 L3 9.27 L9.61 8.26 Z"/>
+              </svg>
+            </div>
+            <span class="squad-banner-num">SQUAD 1</span>
+          </div>
+          <div class="squad-banner-tag">Google Led</div>
+        </div>
+
+        <div class="squad-intents">
+          <div class="target-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="9" stroke="#6A0DAD" stroke-width="2"/>
+              <circle cx="12" cy="12" r="5" stroke="#6A0DAD" stroke-width="2"/>
+              <circle cx="12" cy="12" r="1.5" fill="#6A0DAD"/>
+            </svg>
+          </div>
+          <span><strong>Intents:</strong> Mobile Billing, Upgrades & General <span class="core">= Core</span></span>
+        </div>
+
+        <div class="partners">
+          <div class="partner">
+            <div class="partner-head">
+              <div class="partner-avatar google">G</div>
+              <span class="partner-name google">Google</span>
+            </div>
+            <ul class="partner-roles">
+              <li>Delivery Exec</li>
+              <li>Lead Eng</li>
+              <li>Conv AI Eng x 2</li>
+              <li>AI Transform Lead</li>
+              <li>Google Security</li>
+            </ul>
+          </div>
+
+          <div class="partner">
+            <div class="partner-head">
+              <div class="partner-avatar accenture">A</div>
+              <span class="partner-name accenture">Accenture</span>
+            </div>
+            <ul class="partner-roles">
+              <li>UX Dev</li>
+              <li>Front End Dev</li>
+              <li>SOP</li>
+              <li>API Engineer</li>
+            </ul>
+          </div>
+
+          <div class="partner">
+            <div class="partner-head">
+              <div class="partner-avatar vmo2">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="white">
+                  <circle cx="12" cy="8" r="4"/>
+                  <path d="M4 22 C4 16 7 13 12 13 C17 13 20 16 20 22 Z"/>
+                </svg>
+              </div>
+              <span class="partner-name vmo2">VMO2</span>
+            </div>
+            <ul class="partner-roles">
+              <li>Product Owners</li>
+              <li>GECX Engineers</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- ====== SQUAD 2 ====== -->
+      <div class="squad squad-2">
+        <div class="squad-banner">
+          <div class="squad-banner-left">
+            <div class="squad-banner-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 17 C3 17 2 16 2 14 C2 12 3.5 11 5 11 L7 11 L9 7 L13 7 L17 3 L21 5 L19 9 L21 11 L21 13 L17 13 L15 17 Z" stroke="white" stroke-width="0.5" stroke-linejoin="round"/>
+                <circle cx="17" cy="7" r="1.2" fill="#0019A5"/>
+              </svg>
+            </div>
+            <span class="squad-banner-num">SQUAD 2</span>
+          </div>
+          <div class="squad-banner-tag">Fast Follower</div>
+        </div>
+
+        <div class="squad-intents">
+          <div class="target-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="9" stroke="#0019A5" stroke-width="2"/>
+              <circle cx="12" cy="12" r="5" stroke="#0019A5" stroke-width="2"/>
+              <circle cx="12" cy="12" r="1.5" fill="#0019A5"/>
+            </svg>
+          </div>
+          <span><strong>Intents:</strong> Fixed Billing, Appointments, General & Care</span>
+        </div>
+
+        <div class="partners">
+          <div class="partner">
+            <div class="partner-head">
+              <div class="partner-avatar google">G</div>
+              <span class="partner-name google">Google</span>
+            </div>
+            <ul class="partner-roles">
+              <li>Lead Eng</li>
+              <li>Lead Dev</li>
+              <li>Lead AI Transform</li>
+              <li>Delivery Exec</li>
+            </ul>
+          </div>
+
+          <div class="partner">
+            <div class="partner-head">
+              <div class="partner-avatar accenture">A</div>
+              <span class="partner-name accenture">Accenture</span>
+            </div>
+            <ul class="partner-roles">
+              <li>Scrum Lead</li>
+              <li>SOP Designers</li>
+              <li>API Architects</li>
+              <li>AI Transformation Consultant</li>
+              <li>UX Lead</li>
+              <li>Front End Devs x 2</li>
+            </ul>
+          </div>
+
+          <div class="partner">
+            <div class="partner-head">
+              <div class="partner-avatar vmo2">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="white">
+                  <circle cx="12" cy="8" r="4"/>
+                  <path d="M4 22 C4 16 7 13 12 13 C17 13 20 16 20 22 Z"/>
+                </svg>
+              </div>
+              <span class="partner-name vmo2">VMO2</span>
+            </div>
+            <ul class="partner-roles">
+              <li>Product Owners</li>
+              <li>GECX Engineers x 2</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom panel: Ways of Working / Governance / One Goal -->
+    <div class="om-bottom">
+      <div class="om-block">
+        <div class="om-block-icon wow">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="8" r="3"/>
+            <circle cx="17" cy="8" r="2.5"/>
+            <path d="M3 19 C3 16 5 14 9 14 C13 14 15 16 15 19"/>
+            <path d="M14 14 C16 14 21 15 21 19"/>
+          </svg>
+        </div>
+        <div class="om-block-content">
+          <div class="om-block-title wow">Ways of Working</div>
+          <ul>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6A0DAD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" fill="rgba(106,13,173,0.1)" stroke="none"/><path d="M8 12 L11 15 L16 9"/></svg>Shared standards & design patterns</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6A0DAD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" fill="rgba(106,13,173,0.1)" stroke="none"/><path d="M8 12 L11 15 L16 9"/></svg>Common tooling & platform</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6A0DAD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" fill="rgba(106,13,173,0.1)" stroke="none"/><path d="M8 12 L11 15 L16 9"/></svg>Agile delivery with regular syncs</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6A0DAD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" fill="rgba(106,13,173,0.1)" stroke="none"/><path d="M8 12 L11 15 L16 9"/></svg>Knowledge share between squads</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="om-block">
+        <div class="om-block-icon gov">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round">
+            <path d="M12 2 L20 6 V12 C20 17 16 20 12 22 C8 20 4 17 4 12 V6 Z"/>
+            <path d="M9 12 L11 14 L15 10" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="om-block-content">
+          <div class="om-block-title gov">Governance & Alignment</div>
+          <ul>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0019A5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" fill="rgba(0,25,165,0.1)" stroke="none"/><path d="M8 12 L11 15 L16 9"/></svg>Joint steering & prioritisation</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0019A5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" fill="rgba(0,25,165,0.1)" stroke="none"/><path d="M8 12 L11 15 L16 9"/></svg>Architecture review board</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0019A5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" fill="rgba(0,25,165,0.1)" stroke="none"/><path d="M8 12 L11 15 L16 9"/></svg>Risk, security & compliance oversight</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0019A5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" fill="rgba(0,25,165,0.1)" stroke="none"/><path d="M8 12 L11 15 L16 9"/></svg>Outcome & KPI tracking</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="om-block">
+        <div class="om-block-icon goal">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <circle cx="12" cy="12" r="9"/>
+            <circle cx="12" cy="12" r="5"/>
+            <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
+          </svg>
+        </div>
+        <div class="om-block-content">
+          <div class="om-block-title goal">One Goal</div>
+          <p class="om-goal-text">Deliver connected, intelligent customer experiences - faster, better, together.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Principle line -->
+    <div class="om-principle">
+      <div class="om-principle-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M13 2 L4 14 L11 14 L9 22 L20 10 L13 10 Z"/>
+        </svg>
+      </div>
+      <div class="om-principle-label">Principle:</div>
+      <div class="om-principle-text">One team. One architecture. Two squads. <em>Accelerating value.</em></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== RISKS ===== -->
+<section style="background: var(--bg-soft);">
+  <div class="container">
+    <span class="section-eyebrow">Dependencies & Risks</span>
+    <h2 class="section-title">Planning & Alignment is key.</h2>
+    <p class="section-lead">The path to green isn't just technical - it's orchestration. These are the dependencies we manage actively.</p>
+
+    <div class="risks-grid">
+      <div class="risk-card">
+        <h3>API Readiness</h3>
+        <div class="risk-row"><strong>Need:</strong><span>Swagger + GitLab access, integration via TCS / P7</span></div>
+        <div class="risk-row"><strong>Risk:</strong><span>Delays block agent action capability</span></div>
+        <div class="risk-row"><strong>Fix:</strong><span>Prioritise API enablement for Tier 1 intents</span></div>
+      </div>
+
+      <div class="risk-card">
+        <h3>Data & Knowledge Quality</h3>
+        <div class="risk-row"><strong>Need:</strong><span>Accurate billing data, current product info</span></div>
+        <div class="risk-row"><strong>Risk:</strong><span>Wrong responses erode customer trust</span></div>
+        <div class="risk-row"><strong>Fix:</strong><span>Governance model for knowledge updates</span></div>
+      </div>
+
+      <div class="risk-card">
+        <h3>Organisational Alignment</h3>
+        <div class="risk-row"><strong>Need:</strong><span>VMO2, Google, Accenture in lockstep</span></div>
+        <div class="risk-row"><strong>Risk:</strong><span>Delivery friction across stakeholders</span></div>
+        <div class="risk-row"><strong>Fix:</strong><span>Clear ownership model - defined per stage</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TIERS ===== -->
+<section class="tiers" id="tiers">
+  <div class="container">
+    <span class="section-eyebrow">Prioritised Intent Framework</span>
+    <h2 class="section-title">The approach. <em>One direction.</em></h2>
+    <p class="section-lead">We achieve cross-channel alignment. Tier 1 gets us to green. Tier 2 takes us to scale. Tier 3 is where we extend.</p>
+
+    <div class="tier-stack">
+      <div class="tier tier-1">
+        <div class="tier-badge">
+          <span class="num">01</span>
+          <span class="label">Critical · Now</span>
+        </div>
+        <div class="tier-content">
+          <h3>Get to green, fast.</h3>
+          <p>High-volume intents with strong API-backed resolution. Squad 1's core focus - these set the patterns for everything that follows.</p>
+          <div class="tier-tags">
+            <span class="tier-tag">Mobile Billing</span>
+            <span class="tier-tag">Package Changes</span>
+            <span class="tier-tag">Upgrades</span>
+            <span class="tier-tag">General Enquiries</span>
+          </div>
+        </div>
+        <div class="tier-volume">
+          <div class="big">≥55%</div>
+          <div class="small">Containment target</div>
+        </div>
+      </div>
+
+      <div class="tier tier-2">
+        <div class="tier-badge">
+          <span class="num">02</span>
+          <span class="label">High Priority · Scale</span>
+        </div>
+        <div class="tier-content">
+          <h3>Expand the playbook.</h3>
+          <p>Volume + moderate complexity. Squad 2's fast-follower remit - deeper integrations and personalised flows.</p>
+          <div class="tier-tags">
+            <span class="tier-tag">Fixed Billing</span>
+            <span class="tier-tag">Appointments</span>
+            <span class="tier-tag">General Care</span>
+          </div>
+        </div>
+        <div class="tier-volume">
+          <div class="big">5.7m+</div>
+          <div class="small">Initial phase volume</div>
+        </div>
+      </div>
+
+      <div class="tier tier-3">
+        <div class="tier-badge">
+          <span class="num">03</span>
+          <span class="label">Expansion · Long Tail</span>
+        </div>
+        <div class="tier-content">
+          <h3>Knowledge & the long tail.</h3>
+          <p>Lower per-intent volume but big collective impact. Powered by Vertex AI - incremental gains, reduced agent escalation.</p>
+          <div class="tier-tags">
+            <span class="tier-tag">FAQs & Troubleshooting</span>
+            <span class="tier-tag">Product Info</span>
+            <span class="tier-tag">Edge-case Queries</span>
+          </div>
+        </div>
+        <div class="tier-volume">
+          <div class="big">6.5m</div>
+          <div class="small">2028 containment goal</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ===== DELIVERY MODEL ===== -->
+<section class="delivery" id="delivery">
+  <div class="container">
+    <span class="section-eyebrow">End-to-End Delivery</span>
+    <h2 class="section-title">Simple stages. Clear ownership. No ambiguity.</h2>
+    <p class="section-lead">Every agent moves through the same pipeline. Every stage has named owners and explicit gates to green.</p>
+
+    <div class="delivery-grid">
+      <div class="delivery-card">
+        <div class="delivery-step">STAGE 01</div>
+        <h3>SOPs</h3>
+        <p>Conversational flows, journey maps, and escalation logic - aligned to compliance from day one.</p>
+        <span class="delivery-owner">CCAI + Accenture</span>
+      </div>
+
+      <div class="delivery-card">
+        <div class="delivery-step">STAGE 02</div>
+        <h3>Solution Design</h3>
+        <p>Decision trees, orchestration logic, API dependencies, and the data flows that bind them.</p>
+        <span class="delivery-owner">Engineering</span>
+      </div>
+
+      <div class="delivery-card">
+        <div class="delivery-step">STAGE 03</div>
+        <h3>Architecture</h3>
+        <p>CCAI, GCP/AWS, integration layers - scalable, secure, and signed off by enterprise.</p>
+        <span class="delivery-owner">Architecture</span>
+      </div>
+
+      <div class="delivery-card">
+        <div class="delivery-step">STAGE 04</div>
+        <h3>UX Design</h3>
+        <p>Tone, clarity, multi-turn flow, error recovery - designed for containment, not just chat.</p>
+        <span class="delivery-owner">CCAI + Google</span>
+      </div>
+
+      <div class="delivery-card">
+        <div class="delivery-step">STAGE 05</div>
+        <h3>Design & Build</h3>
+        <p>Build the agents, wire the APIs, deploy on Vertex AI/CCAI. Stable end-to-end.</p>
+        <span class="delivery-owner">CCAI + Google + Accenture</span>
+      </div>
+
+      <div class="delivery-card">
+        <div class="delivery-step">STAGE 06</div>
+        <h3>Testing</h3>
+        <p>Functional, conversational, performance, containment - validated before any agent goes live.</p>
+        <span class="delivery-owner">CCAI</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ===== ROADMAP ===== -->
+<section id="roadmap">
+  <div class="container">
+    <span class="section-eyebrow">Delivery Roadmap</span>
+    <h2 class="section-title">When each intent goes live.</h2>
+    <p class="section-lead">A half-by-half view of the agentic roadmap - sequencing the work so value compounds: foundation first, scale next, then long-tail and full coverage.</p>
+
+    <div class="gantt">
+      <div class="gantt-inner">
+        <!-- Header -->
+        <div class="gantt-head">
+          <div class="gantt-head-cell">Intent</div>
+          <div class="gantt-head-cell">JUN <span class="gantt-head-year">2026</span></div>
+          <div class="gantt-head-cell">JUL <span class="gantt-head-year">2026</span></div>
+          <div class="gantt-head-cell">AUG <span class="gantt-head-year">2026</span></div>
+          <div class="gantt-head-cell">SEP <span class="gantt-head-year">2026</span></div>
+          <div class="gantt-head-cell">OCT <span class="gantt-head-year">2026</span></div>
+          <div class="gantt-head-cell">NOV <span class="gantt-head-year">2026</span></div>
+          <div class="gantt-head-cell">DEC <span class="gantt-head-year">2026</span></div>
+          <div class="gantt-head-cell">JAN <span class="gantt-head-year">2027</span></div>
+          <div class="gantt-head-cell">FEB <span class="gantt-head-year">2027</span></div>
+        </div>
+
+        <div class="gantt-row">
+          <div class="gantt-label">
+            <span class="gantt-brand o2">O2</span>
+            <div>
+              <div class="name">Vertex AI Search</div>
+              <div class="sub">GenUI Jun-26 · Optimise Jul-26</div>
+            </div>
+          </div>
+          <div class="gantt-track">
+            <div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div>
+            <div class="gantt-segment agent o2" style="left: 1.00%; width: 9.81%;">GenUI</div>
+            <div class="gantt-segment optimise o2" style="left: 11.41%; width: 9.81%;">Optimise</div>
+          </div>
+        </div>
+
+        <div class="gantt-row">
+          <div class="gantt-label">
+            <span class="gantt-brand o2">O2</span>
+            <div>
+              <div class="name">Joining &amp; Upgrading</div>
+              <div class="sub">Agent Jul-26 · GenUI Aug-26 · Optimise Sep-26</div>
+            </div>
+          </div>
+          <div class="gantt-track">
+            <div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div>
+            <div class="gantt-segment agent o2" style="left: 12.11%; width: 9.81%;">Agent</div>
+            <div class="gantt-segment genui o2" style="left: 22.52%; width: 10.51%;">GenUI</div>
+            <div class="gantt-segment optimise o2" style="left: 33.63%; width: 9.81%;">Optimise</div>
+          </div>
+        </div>
+
+        <div class="gantt-row">
+          <div class="gantt-label">
+            <span class="gantt-brand vm">VM</span>
+            <div>
+              <div class="name">Appointments</div>
+              <div class="sub">Agent Aug-26 · GenUI Sep-26 · Optimise Oct-26</div>
+            </div>
+          </div>
+          <div class="gantt-track">
+            <div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div>
+            <div class="gantt-segment agent vm" style="left: 23.22%; width: 9.81%;">Agent</div>
+            <div class="gantt-segment genui vm" style="left: 33.63%; width: 10.51%;">GenUI</div>
+            <div class="gantt-segment optimise vm" style="left: 44.74%; width: 9.81%;">Optimise</div>
+          </div>
+        </div>
+
+        <div class="gantt-row">
+          <div class="gantt-label">
+            <span class="gantt-brand o2">O2</span>
+            <div>
+              <div class="name">Billing &amp; Payments</div>
+              <div class="sub">Agent Aug-26 · GenUI Sep-26 · Optimise Oct-26</div>
+            </div>
+          </div>
+          <div class="gantt-track">
+            <div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div>
+            <div class="gantt-segment agent o2" style="left: 23.22%; width: 9.81%;">Agent</div>
+            <div class="gantt-segment genui o2" style="left: 33.63%; width: 10.51%;">GenUI</div>
+            <div class="gantt-segment optimise o2" style="left: 44.74%; width: 9.81%;">Optimise</div>
+          </div>
+        </div>
+
+        <div class="gantt-row">
+          <div class="gantt-label">
+            <span class="gantt-brand vm">VM</span>
+            <div>
+              <div class="name">Faults</div>
+              <div class="sub">Agent Sep-26 · GenUI Oct-26 · Optimise Nov-26</div>
+            </div>
+          </div>
+          <div class="gantt-track">
+            <div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div>
+            <div class="gantt-segment agent vm" style="left: 34.33%; width: 9.81%;">Agent</div>
+            <div class="gantt-segment genui vm" style="left: 44.74%; width: 10.51%;">GenUI</div>
+            <div class="gantt-segment optimise vm" style="left: 55.86%; width: 9.81%;">Optimise</div>
+          </div>
+        </div>
+
+        <div class="gantt-row">
+          <div class="gantt-label">
+            <span class="gantt-brand vm">VM</span>
+            <div>
+              <div class="name">New Acquisition</div>
+              <div class="sub">Agent Sep-26 · GenUI Oct-26 · Optimise Nov-26</div>
+            </div>
+          </div>
+          <div class="gantt-track">
+            <div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div>
+            <div class="gantt-segment agent vm" style="left: 34.33%; width: 9.81%;">Agent</div>
+            <div class="gantt-segment genui vm" style="left: 44.74%; width: 10.51%;">GenUI</div>
+            <div class="gantt-segment optimise vm" style="left: 55.86%; width: 9.81%;">Optimise</div>
+          </div>
+        </div>
+
+        <div class="gantt-row">
+          <div class="gantt-label">
+            <span class="gantt-brand vm">VM</span>
+            <div>
+              <div class="name">Retentions</div>
+              <div class="sub">Agent Sep-26 · GenUI Oct-26 · Optimise Nov-26</div>
+            </div>
+          </div>
+          <div class="gantt-track">
+            <div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div>
+            <div class="gantt-segment agent vm" style="left: 34.33%; width: 9.81%;">Agent</div>
+            <div class="gantt-segment genui vm" style="left: 44.74%; width: 10.51%;">GenUI</div>
+            <div class="gantt-segment optimise vm" style="left: 55.86%; width: 9.81%;">Optimise</div>
+          </div>
+        </div>
+
+        <div class="gantt-row">
+          <div class="gantt-label">
+            <span class="gantt-brand o2">O2</span>
+            <div>
+              <div class="name">Account</div>
+              <div class="sub">Agent Oct-26 · GenUI Nov-26 · Optimise Dec-26</div>
+            </div>
+          </div>
+          <div class="gantt-track">
+            <div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div>
+            <div class="gantt-segment agent o2" style="left: 45.44%; width: 9.81%;">Agent</div>
+            <div class="gantt-segment genui o2" style="left: 55.86%; width: 10.51%;">GenUI</div>
+            <div class="gantt-segment optimise o2" style="left: 66.97%; width: 9.81%;">Optimise</div>
+          </div>
+        </div>
+
+        <div class="gantt-row">
+          <div class="gantt-label">
+            <span class="gantt-brand vm">VM</span>
+            <div>
+              <div class="name">Package Change</div>
+              <div class="sub">Agent Oct-26 · GenUI Nov-26 · Optimise Dec-26</div>
+            </div>
+          </div>
+          <div class="gantt-track">
+            <div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div>
+            <div class="gantt-segment agent vm" style="left: 45.44%; width: 9.81%;">Agent</div>
+            <div class="gantt-segment genui vm" style="left: 55.86%; width: 10.51%;">GenUI</div>
+            <div class="gantt-segment optimise vm" style="left: 66.97%; width: 9.81%;">Optimise</div>
+          </div>
+        </div>
+
+        <div class="gantt-row">
+          <div class="gantt-label">
+            <span class="gantt-brand vm">VM</span>
+            <div>
+              <div class="name">Essential Broadband</div>
+              <div class="sub">Agent Nov-26 · GenUI Dec-26 · Optimise Jan-27</div>
+            </div>
+          </div>
+          <div class="gantt-track">
+            <div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div>
+            <div class="gantt-segment agent vm" style="left: 56.56%; width: 9.81%;">Agent</div>
+            <div class="gantt-segment genui vm" style="left: 66.97%; width: 10.51%;">GenUI</div>
+            <div class="gantt-segment optimise vm" style="left: 78.08%; width: 9.81%;">Optimise</div>
+          </div>
+        </div>
+
+        <div class="gantt-row">
+          <div class="gantt-label">
+            <span class="gantt-brand o2">O2</span>
+            <div>
+              <div class="name">Network Coverage &amp; International</div>
+              <div class="sub">Agent Nov-26 · GenUI Dec-26 · Optimise Jan-27</div>
+            </div>
+          </div>
+          <div class="gantt-track">
+            <div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div>
+            <div class="gantt-segment agent o2" style="left: 56.56%; width: 9.81%;">Agent</div>
+            <div class="gantt-segment genui o2" style="left: 66.97%; width: 10.51%;">GenUI</div>
+            <div class="gantt-segment optimise o2" style="left: 78.08%; width: 9.81%;">Optimise</div>
+          </div>
+        </div>
+
+        <div class="gantt-row">
+          <div class="gantt-label">
+            <span class="gantt-brand vm">VM</span>
+            <div>
+              <div class="name">Billing</div>
+              <div class="sub">Agent Dec-26 · GenUI Jan-27 · Optimise Feb-27</div>
+            </div>
+          </div>
+          <div class="gantt-track">
+            <div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div>
+            <div class="gantt-segment agent vm" style="left: 67.67%; width: 9.81%;">Agent</div>
+            <div class="gantt-segment genui vm" style="left: 78.08%; width: 10.51%;">GenUI</div>
+            <div class="gantt-segment optimise vm" style="left: 89.19%; width: 9.81%;">Optimise</div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="gantt-legend">
+        <div class="gantt-legend-item"><span class="gantt-legend-dot" style="background: var(--vm-red);"></span>Virgin Media</div>
+        <div class="gantt-legend-item"><span class="gantt-legend-dot" style="background: var(--o2-blue);"></span>O2</div>
+        <div class="gantt-legend-item"><span class="gantt-legend-dot" style="background: linear-gradient(90deg, #E10A0A 0%, #FF1493 50%, #6A0DAD 100%);"></span>Agent → GenUI → Optimise</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ===== VALUE MAP ===== -->
+<section class="valuemap" id="value-map">
+  <div class="container">
+    <span class="section-eyebrow">Value Map</span>
+    <h2 class="section-title">Where the value lands.</h2>
+    <p class="section-lead">Each intent plotted by delivery date and OPEX impact. The further right, the later the build. The further up, the bigger the prize. Bubble size shows 2027 interaction volume.</p>
+
+    <div class="scatter-card">
+      <div class="scatter-head">
+        <div>
+          <div class="scatter-head-title">OPEX Impact vs Delivery Date</div>
+          <div class="scatter-head-sub">28 intents · £24.9m total OPEX impact · plotted by go-live quarter</div>
+        </div>
+        <div class="scatter-legend">
+          <span class="scatter-legend-item"><span class="dot vm-brand"></span>Virgin Media</span>
+          <span class="scatter-legend-item"><span class="dot o2-brand"></span>O2</span>
+        </div>
+      </div>
+
+      <div class="scatter-wrap">
+        <div class="scatter-yaxis">
+          <span>£3.5m</span>
+          <span>£3.0m</span>
+          <span>£2.5m</span>
+          <span>£2.0m</span>
+          <span>£1.5m</span>
+          <span>£1.0m</span>
+          <span>£0.5m</span>
+          <span>£0</span>
+        </div>
+        <div class="scatter-plot" id="scatter-plot">
+          <!-- gridlines -->
+          <div class="scatter-gridlines">
+            <div class="grid-h"></div><div class="grid-h"></div><div class="grid-h"></div>
+            <div class="grid-h"></div><div class="grid-h"></div><div class="grid-h"></div>
+            <div class="grid-h"></div>
+          </div>
+          <div class="scatter-vlines">
+            <div class="grid-v"></div><div class="grid-v"></div><div class="grid-v"></div>
+            <div class="grid-v"></div><div class="grid-v"></div><div class="grid-v"></div>
+          </div>
+          <!-- bubbles get injected here -->
+        </div>
+      </div>
+      <div class="scatter-xaxis">
+        <span>Q3 2027</span>
+        <span>Q4 2027</span>
+        <span>Q1 2028</span>
+        <span>Q2 2028</span>
+        <span>Q3 2028</span>
+        <span>Q4 2028</span>
+      </div>
+
+      <div class="scatter-yaxis-label">OPEX Impact (£)</div>
+      <div class="scatter-xaxis-label">Delivery Date (ETA)</div>
+
+      <div class="scatter-tooltip" id="scatter-tooltip"></div>
+    </div>
+
+    <div class="scatter-insights">
+      <div class="insight">
+        <div class="insight-num">£4.6m</div>
+        <div class="insight-lbl">Q3 2027 launch - earliest, biggest first wins</div>
+      </div>
+      <div class="insight">
+        <div class="insight-num">£3.2m</div>
+        <div class="insight-lbl">VM Retentions - single largest OPEX prize</div>
+      </div>
+      <div class="insight">
+        <div class="insight-num">£15.6m</div>
+        <div class="insight-lbl">2028 OPEX impact - the scale year</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COMPLIANCE & CONTROL ===== -->
+<section class="compliance" id="compliance">
+  <div class="container">
+    <span class="section-eyebrow">Trust, Risk & Control</span>
+    <div class="compliance-shield">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+        <path d="M12 2 L20 6 V12 C20 17 16 20 12 22 C8 20 4 17 4 12 V6 Z" fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M9 12 L11 14 L15 10" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+      <span>Critical</span>
+    </div>
+    <h2 class="section-title">Designed for control, auditability, and safety.</h2>
+    <p class="section-lead">Agentic AI without guardrails is a liability. Every action is permissioned, every decision is logged, every high-risk step has a human in the loop.</p>
+
+    <div class="compliance-grid">
+      <!-- Controls -->
+      <div class="compliance-card">
+        <div class="compliance-icon controls">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <rect x="4" y="6" width="16" height="14" rx="2" stroke="white" stroke-width="2" fill="none"/>
+            <path d="M8 6 V4 a2 2 0 0 1 2-2 h4 a2 2 0 0 1 2 2 V6" stroke="white" stroke-width="2" fill="none"/>
+            <circle cx="12" cy="13" r="2" fill="white"/>
+            <line x1="12" y1="15" x2="12" y2="17" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>Controls</h3>
+        <ul>
+          <li>Role-based permissions for actions</li>
+          <li>Human-in-the-loop for high-risk decisions</li>
+          <li>Approval workflows for critical steps</li>
+        </ul>
+      </div>
+
+      <!-- Risk Mitigation -->
+      <div class="compliance-card">
+        <div class="compliance-icon risk">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2 L22 20 H2 Z" stroke="white" stroke-width="2" fill="none" stroke-linejoin="round"/>
+            <line x1="12" y1="9" x2="12" y2="14" stroke="white" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="12" cy="17" r="1" fill="white"/>
+          </svg>
+        </div>
+        <h3>Risk Mitigation</h3>
+        <ul>
+          <li>Prompt injection protection</li>
+          <li>Tool access (least privilege)</li>
+          <li>Fail-safe escalation</li>
+        </ul>
+      </div>
+
+      <!-- Audit -->
+      <div class="compliance-card">
+        <div class="compliance-icon audit">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M14 2 H6 a2 2 0 0 0 -2 2 V20 a2 2 0 0 0 2 2 H18 a2 2 0 0 0 2 -2 V8 Z" stroke="white" stroke-width="2" fill="none" stroke-linejoin="round"/>
+            <path d="M14 2 V8 H20" stroke="white" stroke-width="2" fill="none" stroke-linejoin="round"/>
+            <line x1="8" y1="13" x2="16" y2="13" stroke="white" stroke-width="2" stroke-linecap="round"/>
+            <line x1="8" y1="17" x2="14" y2="17" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>Audit</h3>
+        <ul>
+          <li>Full decision logging</li>
+          <li>Explainability of actions</li>
+          <li>Compliance alignment</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Key line -->
+    <div class="compliance-keyline">
+      <div class="compliance-keyline-label">⚡ The principle</div>
+      <div class="compliance-keyline-quote">Agents request actions <em>-</em> systems approve them.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== KPIs ===== -->
+<section class="kpis" id="metrics">
+  <div class="container">
+    <span class="section-eyebrow">Path to Green KPIs</span>
+    <h2 class="section-title">How we'll know we got there.</h2>
+    <p class="section-lead">Five measures keep us honest. Containment is the headline - but customer experience is the soul.</p>
+
+    <div class="kpi-grid">
+      <div class="kpi">
+        <div class="kpi-value">≥55%</div>
+        <div class="kpi-label">Containment Rate (Phase 1)</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-value">£34m+</div>
+        <div class="kpi-label">OPEX Avoidance</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-value">CSAT</div>
+        <div class="kpi-label">Customer Satisfaction/Trust</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-value">↑</div>
+        <div class="kpi-label">Containment Rate</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-value">↓</div>
+        <div class="kpi-label">Time to Resolution</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== REPORTING ===== -->
+<section class="reporting" id="reporting">
+  <div class="container">
+    <span class="section-eyebrow">Reporting & Insight</span>
+    <h2 class="section-title">How we'll measure it.</h2>
+    <p class="section-lead">Three platforms, one performance picture. From the first click to the final conversation outcome, we instrument the full journey.</p>
+
+    <div class="reporting-grid">
+
+      <!-- Card 1: Google Analytics -->
+      <div class="report-card">
+        <div class="report-head">
+          <div class="report-logo ga4">GA4</div>
+          <div class="report-meta">
+            <div class="report-platform">Platform · 01</div>
+            <div class="report-name">Google Analytics</div>
+          </div>
+        </div>
+        <hr>
+        <h3 class="report-headline">Volume, revenue & URL tracking.</h3>
+        <p class="report-desc">Every session, every entry point, every conversion. GA4 owns the top-of-funnel view - from which URL triggered which widget to the revenue it generated.</p>
+        <div class="report-tags">
+          <span class="report-tag">Session Volume</span>
+          <span class="report-tag">Revenue Attribution</span>
+          <span class="report-tag">URL Pathing</span>
+          <span class="report-tag">Widget Triggers</span>
+        </div>
+      </div>
+
+      <!-- Card 2: AWS CloudWatch -->
+      <div class="report-card">
+        <div class="report-head">
+          <div class="report-logo cw">CW</div>
+          <div class="report-meta">
+            <div class="report-platform">Platform · 02</div>
+            <div class="report-name">AWS CloudWatch</div>
+          </div>
+        </div>
+        <hr>
+        <h3 class="report-headline">Containment rate reporting.</h3>
+        <p class="report-desc">The single source of truth for how many conversations the VA resolves on its own - directly surfaced from the Amazon Connect and Lex pipeline.</p>
+        <div class="report-tags">
+          <span class="report-tag">Contain Rate</span>
+          <span class="report-tag">Intent Resolution</span>
+          <span class="report-tag">Escalation Ratios</span>
+        </div>
+        <div class="report-contact">
+          <div class="contact-avatar">JL</div>
+          <div class="contact-info">
+            <div class="contact-name">Josh Lloyd</div>
+            <div class="contact-role">Available on request · VOC Insight</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Tableau -->
+      <div class="report-card is-coming">
+        <div class="report-head">
+          <div class="report-logo tableau">T</div>
+          <div class="report-meta">
+            <div class="report-platform">Platform · 03</div>
+            <div class="report-name">Tableau</div>
+          </div>
+        </div>
+        <hr>
+        <h3 class="report-headline">Downstream performance.</h3>
+        <p class="report-desc">The full-funnel view - connecting VA interactions to what happens next. Retention, repeat contact, resolution quality, and business impact.</p>
+        <div class="report-tags">
+          <span class="report-tag">Downstream Impact</span>
+          <span class="report-tag">Repeat Contact</span>
+          <span class="report-tag">Resolution Quality</span>
+          <span class="report-tag">Cohort Analysis</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== REMAINING INTENTS (Phase 4) ===== -->
+<section class="intents-section" id="phase-4-intents">
+  <div class="container">
+    <span class="section-eyebrow">Phase 04 · The 2028 Sweep</span>
+    <h2 class="section-title">Every remaining intent.</h2>
+    <p class="section-lead">After Phase 1–3 establishes the foundation, Phase 4 closes out 2028 by tackling the rest of the estate - every intent across VM and O2 that hasn't yet been onboarded. Filter by brand to see what's in scope.</p>
+
+    <div class="intents-summary">
+      <div class="summary-stat">
+        <div class="num">23</div>
+        <div class="lbl">Remaining intents</div>
+      </div>
+      <div class="summary-stat">
+        <div class="num">7.3m+</div>
+        <div class="lbl">2027 interactions</div>
+      </div>
+      <div class="summary-stat">
+        <div class="num">15</div>
+        <div class="lbl">VM intents</div>
+      </div>
+      <div class="summary-stat">
+        <div class="num">8</div>
+        <div class="lbl">O2 intents</div>
+      </div>
+    </div>
+
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">All intents</button>
+      <button class="filter-btn" data-filter="vm">Virgin Media</button>
+      <button class="filter-btn" data-filter="o2">O2</button>
+    </div>
+
+    <div class="intents-grid" id="intents-grid">
+      <!-- Cards injected via JS for cleanliness -->
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<hr class="divider">
+
+<!-- ===== CTA BANNER ===== -->
+<div class="container">
+  <div class="cta-banner">
+    <h2>Three decisions for leadership.</h2>
+    <p>Alignment with voice on intent focus and prioritisation. Approve the squad scaling model and budget. Confirm containment-vs-experience trade-offs.</p>
+    <a href="https://chrishugss-png.github.io/o2-upgrade-microsite/" target="_blank" rel="noopener" class="hero-cta">Review the plan →</a>
+  </div>
+</div>
 
 <!-- ===== FOOTER ===== -->
 <footer>
-  <div class="container footer-inner">
-    <div>Sierra AI - Programme Summary - VMO2 Digital &amp; CCAI</div>
-    <div>Internal briefing - For the Digital Director</div>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo" style="color: white;">
+          <span class="logo-mark">
+            <svg viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg">
+              <rect width="38" height="38" fill="#E10A0A"/>
+              <path d="M-2 -2 Q 14 6 18 38 L -2 38 Z" fill="#B30000"/>
+              <path d="M40 0 Q 18 8 14 40 L 40 40 Z" fill="#0019A5"/>
+              <path d="M40 18 Q 30 28 30 40 L 40 40 Z" fill="#0033CC"/>
+            </svg>
+          </span>
+          <span>Digital <strong style="color: #FF1493;">Agentic Strategy</strong></span>
+        </a>
+        <p>Gemini Enterprise for Customer Experience - transforming customer interactions through agentic AI.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Strategy</h4>
+        <ul>
+          <li><a href="#principles">Principles</a></li>
+          <li><a href="#tiers">Intent Tiers</a></li>
+          <li><a href="#roadmap">Roadmap</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Delivery</h4>
+        <ul>
+          <li><a href="#delivery">Stages</a></li>
+          <li><a href="#metrics">KPIs</a></li>
+          <li><a href="#">Operating Model</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Partners</h4>
+        <ul>
+          <li><a href="#">VMO2 (CCAI)</a></li>
+          <li><a href="#">Google</a></li>
+          <li><a href="#">Accenture</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2027 Virgin Media O2. GECX Programme · Internal Strategy Microsite
+    </div>
   </div>
 </footer>
+
+<script>
+  // Phase 4 - Remaining Intents data (from VM/O2 Q1 numbers, 2027 volumes)
+  const intents = [
+    { brand: 'VM', name: 'Retentions', volume: 1441608 },
+    { brand: 'VM', name: 'Faults', volume: 899320 },
+    { brand: 'O2', name: 'Account', volume: 588416 },
+    { brand: 'VM', name: 'Mobile Queries', volume: 565784 },
+    { brand: 'VM', name: 'New Acquisitions', volume: 525476 },
+    { brand: 'VM', name: 'Payment', volume: 415908 },
+    { brand: 'O2', name: 'Device, SIMs & Accessories', volume: 395020 },
+    { brand: 'O2', name: 'Cancellations', volume: 320286 },
+    { brand: 'O2', name: 'Network Coverage & International', volume: 312664 },
+    { brand: 'VM', name: 'PIC', volume: 304412 },
+    { brand: 'VM', name: 'Account', volume: 271800 },
+    { brand: 'O2', name: 'Orders & Returns', volume: 234252 },
+    { brand: 'VM', name: 'Additional Support', volume: 192752 },
+    { brand: 'VM', name: 'Appointments', volume: 161764 },
+    { brand: 'VM', name: 'Orders and Returns', volume: 160220 },
+    { brand: 'VM', name: 'Essential Broadband', volume: 135552 },
+    { brand: 'O2', name: 'Additional Support', volume: 100020 },
+    { brand: 'VM', name: 'Activation', volume: 81028 },
+    { brand: 'O2', name: 'Data & Usage', volume: 64704 },
+    { brand: 'VM', name: 'Complaints', volume: 62588 },
+    { brand: 'O2', name: 'Safety & Security', volume: 35860 },
+    { brand: 'VM', name: 'Volt', volume: 14024 },
+    { brand: 'VM', name: 'Network Expansion', volume: 1660 }
+  ];
+
+  const grid = document.getElementById('intents-grid');
+  const maxVol = Math.max(...intents.map(i => i.volume));
+
+  function renderIntents(filter = 'all') {
+    grid.innerHTML = intents.map(i => {
+      const hidden = (filter !== 'all' && filter !== i.brand.toLowerCase()) ? 'is-hidden' : '';
+      const pct = (i.volume / maxVol * 100).toFixed(1);
+      const vol = i.volume >= 1000000
+        ? (i.volume / 1000000).toFixed(2) + 'm'
+        : i.volume >= 1000
+          ? (i.volume / 1000).toFixed(0) + 'k'
+          : i.volume.toString();
+      return `
+        <div class="intent-card ${hidden}">
+          <span class="brand-pill ${i.brand.toLowerCase()}">${i.brand}</span>
+          <div class="intent-body">
+            <div class="intent-name" title="${i.name}">${i.name}</div>
+            <div class="intent-bar"><div class="intent-bar-fill" style="width: ${pct}%"></div></div>
+            <div class="intent-volume">${vol} interactions</div>
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  renderIntents();
+
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => {
+        b.classList.remove('active', 'brand-vm', 'brand-o2');
+      });
+      btn.classList.add('active');
+      const f = btn.dataset.filter;
+      if (f === 'vm') btn.classList.add('brand-vm');
+      if (f === 'o2') btn.classList.add('brand-o2');
+      renderIntents(f);
+    });
+  });
+  // OPEX bar chart - animate on scroll into view
+  const barObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.querySelectorAll('.bar').forEach((bar, i) => {
+          const pct = bar.dataset.target;
+          setTimeout(() => { bar.style.height = pct + '%'; }, 100 + i * 120);
+        });
+        barObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  const barContainer = document.getElementById('opex-bars');
+  if (barContainer) barObserver.observe(barContainer);
+
+  // ===== Scatter chart (Value Map) =====
+  const scatterData = [
+    { brand:'O2', name:'Billing & Payments', eta:'Q3 2027', opex:2.30, vol:1045896 },
+    { brand:'O2', name:'Account', eta:'Q4 2027', opex:1.29, vol:588416 },
+    { brand:'O2', name:'Joining & Upgrading', eta:'Q3 2027', opex:0.98, vol:444120 },
+    { brand:'O2', name:'Device, SIMs & Accessories', eta:'Q4 2027', opex:0.87, vol:395020 },
+    { brand:'O2', name:'Cancellations', eta:'Q4 2028', opex:0.70, vol:320286 },
+    { brand:'O2', name:'Network Coverage & International', eta:'Q1 2028', opex:0.69, vol:312664 },
+    { brand:'O2', name:'Products', eta:'Q4 2027', opex:0.57, vol:260764 },
+    { brand:'O2', name:'Orders & Returns', eta:'Q4 2027', opex:0.52, vol:234252 },
+    { brand:'O2', name:'Additional Support', eta:'Q3 2028', opex:0.22, vol:100020 },
+    { brand:'O2', name:'Data & Usage', eta:'Q4 2027', opex:0.14, vol:64704 },
+    { brand:'VM', name:'Retentions', eta:'Q4 2028', opex:3.17, vol:1441608 },
+    { brand:'VM', name:'Faults', eta:'Q3 2028', opex:2.52, vol:899320 },
+    { brand:'VM', name:'Package Change', eta:'Q3 2028', opex:1.76, vol:800712 },
+    { brand:'VM', name:'Mobile Queries', eta:'Q1 2028', opex:1.24, vol:565784 },
+    { brand:'VM', name:'New Acquisitions', eta:'Q1 2028', opex:1.16, vol:525476 },
+    { brand:'VM', name:'Billing', eta:'Q3 2027', opex:0.93, vol:425000 },
+    { brand:'VM', name:'Payment', eta:'Q4 2028', opex:0.91, vol:415908 },
+    { brand:'VM', name:'PIC', eta:'Q4 2028', opex:0.67, vol:304412 },
+    { brand:'VM', name:'Account', eta:'Q3 2028', opex:0.60, vol:271800 },
+    { brand:'VM', name:'Moving Home', eta:'Q3 2028', opex:0.58, vol:262000 },
+    { brand:'VM', name:'Additional Support', eta:'Q1 2028', opex:0.42, vol:192752 },
+    { brand:'VM', name:'Appointments', eta:'Q3 2027', opex:0.36, vol:161764 },
+    { brand:'VM', name:'Orders and Returns', eta:'Q2 2028', opex:0.35, vol:160220 },
+    { brand:'VM', name:'Essential Broadband', eta:'Q2 2028', opex:0.30, vol:135552 },
+    { brand:'VM', name:'Activation', eta:'Q3 2028', opex:0.18, vol:81028 },
+    { brand:'VM', name:'Complaints', eta:'Q4 2028', opex:0.14, vol:62588 },
+    { brand:'VM', name:'Volt', eta:'Q2 2028', opex:0.03, vol:14024 },
+    { brand:'VM', name:'General', eta:'Q4 2027', opex:1.32, vol:600000 }
+  ];
+
+  const quarters = ['Q3 2027','Q4 2027','Q1 2028','Q2 2028','Q3 2028','Q4 2028'];
+  const yMax = 3.5;
+  const plot = document.getElementById('scatter-plot');
+  const tip = document.getElementById('scatter-tooltip');
+
+  function renderScatter() {
+    if (!plot) return;
+    plot.querySelectorAll('.bubble').forEach(b => b.remove());
+
+    scatterData.forEach((d, i) => {
+      const xIdx = quarters.indexOf(d.eta);
+      if (xIdx < 0) return;
+      // Center of column: each column takes 1/6 of width
+      const xPct = (xIdx + 0.5) / quarters.length * 100;
+      // Y axis: 0 at bottom, yMax at top. We position from bottom using "bottom" CSS
+      const yPct = (d.opex / yMax) * 100;
+
+      // Bubble size based on volume (sqrt scaling for area)
+      const minSize = 14;
+      const maxSize = 56;
+      const maxVol = 1500000;
+      const size = minSize + (Math.sqrt(d.vol / maxVol)) * (maxSize - minSize);
+
+      const b = document.createElement('div');
+      b.className = 'bubble ' + (d.brand === 'VM' ? 'vm' : 'o2');
+      b.style.left = xPct + '%';
+      b.style.bottom = yPct + '%';
+      b.style.width = size + 'px';
+      b.style.height = size + 'px';
+      b.style.animationDelay = (i * 30) + 'ms';
+
+      b.addEventListener('mouseenter', (e) => {
+        tip.innerHTML = `<strong>${d.name}</strong>
+          <div class="row"><span>Brand</span><span>${d.brand}</span></div>
+          <div class="row"><span>Delivery</span><span>${d.eta}</span></div>
+          <div class="row"><span>OPEX impact</span><span>£${d.opex.toFixed(2)}m</span></div>
+          <div class="row"><span>Volume</span><span>${(d.vol/1000).toFixed(0)}k</span></div>`;
+        const rect = plot.getBoundingClientRect();
+        const bRect = b.getBoundingClientRect();
+        tip.style.left = (bRect.left - rect.left + bRect.width/2) + 'px';
+        tip.style.top = (bRect.top - rect.top) + 'px';
+        tip.classList.add('visible');
+      });
+      b.addEventListener('mouseleave', () => tip.classList.remove('visible'));
+
+      plot.appendChild(b);
+    });
+  }
+
+  // Render scatter when it scrolls into view
+  const scatterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        renderScatter();
+        scatterObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+  if (plot) scatterObserver.observe(plot);
+</script>
 
 </body>
 </html>
